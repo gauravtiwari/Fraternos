@@ -1,0 +1,49 @@
+AllCops:
+  Include:
+    - Gemfile
+  Exclude:
+    - config.ru
+    - bin/*
+    - db/**/*
+    - node_modules/**/*
+    - vendor/ruby/**/*
+    - lib/generators/**/*
+  TargetRubyVersion: 2.4
+
+Style/SpaceBeforeFirstArg:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 125
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - config/environments/*.rb
+    - spec/**/*
+
+Rails:
+  Enabled: true
+
+Rails/Validation:
+  Include:
+    - app/models/**/*.rb
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false

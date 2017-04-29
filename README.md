@@ -1,0 +1,22 @@
+# README
+
+- As a visitor i can register
+- As a visitor i can log in
+- As a visitor i can recover my password
+- As a user i can log off
+- As a user i can update my profile
+- As a user i can delete my account
+- As a user i can update my email
+- As a user i can confirm my email
+- As a user i can create a fraternity
+- As an owner i can delete a fraternity
+- As an owner i can invite users to my fraternity
+- As an owner i can remove users from my fraternity
+- As an owner i can rename my fraternity
+- As an owner i can update a members role
+- As an owner/admin i can manage members debts
+- As an owner/admin i can manage members payments
+- As an owner/admin i can manage meetings
+- As an owner/admin i can assign organizers for meetings
+- As a member i can assign myself as a meeting organizer
+- As a member i can remove myself as a meeting organizer
