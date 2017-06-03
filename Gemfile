@@ -8,6 +8,9 @@ end
 gem 'rails', '~> 5.1.0'
 
 gem 'coffee-rails', '~> 4.2'
+# gem 'devise', '~> 4.2', '>= 4.2.1'
+gem 'devise', github: 'plataformatec/devise'
+gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -16,8 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do

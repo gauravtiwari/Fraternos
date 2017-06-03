@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+10.times do |index|
+  User.create(email: "user#{index}@example.com", password: 'password').confirm
+end
+
+fraternity = CreateFraternity.call('Sarasaó', User.first)
+
+User.where.not(id: User.first.id).each do |user|
+  fraternity.memberships.create(user: user, role: :member)
+end
+
+GenerateMeetings.call(
+  fraternity,
+  frequency: 7,
+  organizers: 2,
+  starts_on: Date.today,
+  ends_on: Date.today + 1.month
+)
