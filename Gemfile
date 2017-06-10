@@ -8,7 +8,7 @@ end
 gem 'rails', '~> 5.1.0'
 
 gem 'coffee-rails', '~> 4.2'
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', '~> 4.3'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
