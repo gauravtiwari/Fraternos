@@ -8,13 +8,13 @@ end
 gem 'rails', '~> 5.1.0'
 
 gem 'coffee-rails', '~> 4.2'
-# gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'devise', github: 'plataformatec/devise'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
+gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
