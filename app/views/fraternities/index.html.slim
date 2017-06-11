@@ -1,0 +1,5 @@
+h2 = t('.title')
+
+= link_to t('.add_new'), new_fraternity_path
+
+= render(@fraternities) || t('.none')
