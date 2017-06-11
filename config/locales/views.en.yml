@@ -1,0 +1,69 @@
+en:
+  pages:
+    home:
+      title: Fraternos
+  devise:
+    confirmations:
+      new:
+        title: Resend confirmation instructions
+    passwords:
+      new:
+        title: Forgot your password?
+        submit: Send me reset password instructions
+      edit:
+        title: Change your password
+        new_password: New password
+        submit: Change my password
+    registrations:
+      new:
+        title: Sign up
+      edit:
+        title: Edit account
+        waiting_confirmation_for: "Currently waiting confirmation for: %{email}"
+        cancel_account: Cancel my account
+        unhappy: Unhappy?
+    sessions:
+      new:
+        title: Log in
+        submit: Log in
+    unlocks:
+      new:
+        title: Resend unlock instructions
+        submit: Resend unlock instructions
+    mailer:
+      confirmation_instructions:
+        greeting: Welcome %{resource}!
+        body_html: |
+          <p>You can confirm your account email through the link below:</p>
+        action: Confirm my account
+      email_changed:
+        greeting: Hello %{resource}!
+        body_html: |
+          <p>We're contacting you to notify you that your email is being changed to %{email}.</p>
+      password_change:
+        greeting: Hello %{resource}!
+        body_html: |
+          <p>We're contacting you to notify you that your password has been changed.</p>
+      reset_password_instructions:
+        greeting: Hello %{resource}!
+        body_html: |
+          <p>Someone has requested a link to change your password. You can do this through the link below.</p>
+          <p>If you didn't request this, please ignore this email.</p>
+          <p>Your password won't change until you access the link above and create a new one.</p>
+        action: Change my password
+      unlock_instructions:
+        greeting: Hello %{resource}!
+        body_html: |
+          <p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+          <p>Click the link below to unlock your account:</p>
+        action: Unlock my account
+    shared:
+      links:
+        log_in: Log in
+        sign_up: Sign up
+        password_reset: Forgot your password?
+        resend_confirmation_instructions: Didn't receive confirmation instructions?
+        resend_unlock_instructions: Didn't receive unlock instructions?
+        sing_in_with: Sign in with %{provider}
+      sign_up_form:
+        submit: Sign up

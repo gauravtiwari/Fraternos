@@ -1,0 +1,5 @@
+p = t('.greeting', resource: @email)
+
+= t('.body_html')
+
+p = link_to t('.action'), unlock_url(@resource, unlock_token: @token)

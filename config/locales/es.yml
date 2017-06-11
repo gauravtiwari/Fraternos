@@ -1,0 +1,9 @@
+es:
+  general:
+    title: Fraternos
+  actions:
+    send: Enviar
+    back: Atrás
+    save: Guardar
+  messages:
+    delete_prompt: Estás seguro?

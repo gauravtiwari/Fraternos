@@ -1,0 +1,3 @@
+p = t('.greeting', resource: @email)
+
+= t('.body_html', email: @resource.try(:unconfirmed_email?) ? @resource.unconfirmed_email : @resource.email)

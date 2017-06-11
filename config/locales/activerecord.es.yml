@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        current_password: Contraseña actual
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
+        remember_me: Recordarme
+        reset_password_token: Restablecer token contraseña
+        unlock_token: Desbloquear token
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
