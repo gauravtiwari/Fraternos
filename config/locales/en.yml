@@ -7,3 +7,6 @@ en:
     save: Save
   messages:
     delete_prompt: Are you sure?
+  notifications:
+    destroyed: '%{subject} was removed.'
+    not_destroyed: '%{subject} could not removed.'

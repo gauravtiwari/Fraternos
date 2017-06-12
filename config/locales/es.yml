@@ -7,3 +7,6 @@ es:
     save: Guardar
   messages:
     delete_prompt: Estás seguro?
+  notifications:
+    destroyed: '%{subject} ha sido eliminado.'
+    not_destroyed: 'No se pudo eliminar %{subject}.'

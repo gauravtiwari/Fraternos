@@ -18,7 +18,7 @@ class FraternitiesController < ApplicationController
 
   def create
     @fraternity = CreateFraternity.call(fraternity_params[:name], current_user)
-    
+
     if @fraternity.valid?
       redirect_to fraternities_path
     else

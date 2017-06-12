@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  def notification_for(action, subject)
+    t("notifications.#{action}", subject: subject.model_name.human)
+  end
+
   private
 
   def layout_by_resource
