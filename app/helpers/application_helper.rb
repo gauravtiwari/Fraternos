@@ -20,4 +20,12 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def link_to_delete(object, name = nil, options = {}, &block)
+    options, name = name, capture(&block) if block_given? # rubocop:disable Style/ParallelAssignment
+
+    data = { confirm: t('messages.delete_prompt') }
+
+    link_to name, object, method: :delete, **options.deep_merge(data: data)
+  end
 end

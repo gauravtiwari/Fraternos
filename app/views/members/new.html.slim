@@ -1,0 +1,10 @@
+= t('.title')
+
+= form_for([@fraternity, @member], as: :member, url: fraternity_members_path) do |f|
+  = f.label :email
+  = f.email_field :email
+
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit t('actions.save')
