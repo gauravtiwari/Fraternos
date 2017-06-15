@@ -1,4 +1,4 @@
-class GenerateMeetings
+class GenerateMeetings < Service::Base
   def self.call(fraternity, options = {})
     frequency  = options[:frequency]
     organizers = options[:organizers]

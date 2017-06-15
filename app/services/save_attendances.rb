@@ -1,4 +1,4 @@
-class SaveAttendances
+class SaveAttendances < Service::Base
   def self.call(meeting, present_user_ids)
     meeting.fraternity.users.find_each do |user|
       meeting.attendance_records.create(

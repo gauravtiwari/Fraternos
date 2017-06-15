@@ -1,0 +1,10 @@
+= t('.title')
+
+= form_for @membership do |f|
+  = f.label :nickname
+  = f.text_field :nickname
+
+  = f.label :role
+  = f.select :role, Membership.roles.keys
+
+  = f.submit t('actions.save')
