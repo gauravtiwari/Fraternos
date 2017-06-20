@@ -1,1 +1,9 @@
-li = link_to fraternity.name, fraternity_path(fraternity)
+.card.fraternity-card
+  .card-block
+    .card-title
+      .row
+        .col-sm-6
+          h4 = link_to fraternity.name, fraternity_path(fraternity)
+        .col-sm-6
+          .member-count.text-center.align-middle
+            = fraternity.users.count
