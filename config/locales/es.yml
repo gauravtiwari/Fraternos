@@ -10,3 +10,7 @@ es:
   notifications:
     destroyed: '%{subject} ha sido eliminado.'
     not_destroyed: 'No se pudo eliminar %{subject}.'
+  shared:
+    user_header:
+      welcome: 'Bienvenido, %{subject}'
+      upcoming_events: 'Proximo Evento'

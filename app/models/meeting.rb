@@ -5,5 +5,7 @@ class Meeting < ApplicationRecord
   has_many :organizers, through: :organizer_assignations, source: :organizer
   has_many :attendance_records
 
+  scope :upcoming, -> { where('date >= ?', Time.zone.today).order(:date) }
+
   validates :date, presence: true
 end
