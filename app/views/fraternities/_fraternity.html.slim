@@ -3,7 +3,7 @@
     .card-title
       .row
         .col-sm-6
-          h4 = link_to fraternity.name, fraternity_path(fraternity)
+          h4 = link_to fraternity.name, fraternity_memberships_path(fraternity)
         .col-sm-6
           .member-count.text-center.align-middle
             = fraternity.users.count

@@ -1,0 +1,6 @@
+p
+  = membership.nickname || membership.name
+  = membership.email
+
+  = link_to t('actions.edit'), edit_membership_path(membership)
+  = link_to_delete membership, t('action.delete')

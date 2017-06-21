@@ -1,0 +1,12 @@
+h2 = t('.title')
+
+= form_for resource, as: resource_name, url: invitation_path(resource_name), html: {method: :post} do |f|
+  = devise_error_messages!
+
+  = hidden_field_tag :fraternity_id, params[:fraternity_id]
+
+  - resource.class.invite_key_fields.each do |field|
+    = f.label field
+    = f.text_field field
+
+  = f.submit t('.submit')
