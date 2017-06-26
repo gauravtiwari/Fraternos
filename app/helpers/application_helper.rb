@@ -1,3 +1,5 @@
+ActionView::Base.default_form_builder = CustomFormBuilder
+
 module ApplicationHelper
   def page_title(separator: ' | ')
     app_name = t('general.title')
