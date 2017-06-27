@@ -1,5 +1,11 @@
 h1 = t('.title')
 
-= link_to t('.log_in'), new_user_session_path
-
-= render 'devise/shared/sign_up_form'
+.homepage
+  .sign-in.text-center
+    = link_to t('.log_in'), new_user_session_path, class: 'btn-sign-in btn btn-primary'
+.row
+  .col-sm-6
+    h3 Que es Fraternos?
+    p Lorem ipsum
+  .col-sm-6
+    = render 'devise/shared/sign_up_form'
