@@ -1,3 +1,7 @@
-= link_to t('.add'), new_fraternity_membership_path
+= render 'shared/user_header'
 
-= render(@memberships)
+.text-center
+  = link_to t('.add'), new_fraternity_membership_path, class: 'px-5 mt-4 btn btn-primary'
+
+.row
+  = render(@memberships)
