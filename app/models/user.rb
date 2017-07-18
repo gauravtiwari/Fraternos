@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def membership_for(fraternity)
     memberships.find_by(fraternity: fraternity)
   end
+
+  def owns_fraternity?(fraternity)
+    memberships.exists?(role: :owner, fraternity: fraternity)
+  end
 end

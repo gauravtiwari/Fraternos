@@ -1,15 +1,18 @@
 class MembershipsController < ApplicationController
   def index
+    authorize fraternity, policy_class: MembershipPolicy
     load_memberships
   end
 
   def new
     load_fraternity
+    authorize fraternity, policy_class: MembershipPolicy
     @membership_form = MembershipForm.new
   end
 
   def create
     load_fraternity
+    authorize fraternity, policy_class: MembershipPolicy
     @membership_form = MembershipForm.new(membership_params)
 
     if @membership_form.valid?
@@ -23,10 +26,12 @@ class MembershipsController < ApplicationController
 
   def edit
     load_membership
+    authorize @membership
   end
 
   def update
     load_membership
+    authorize @membership
     build_membership
 
     if @membership.save
@@ -38,6 +43,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     load_membership
+    authorize @membership
 
     options =
       if @membership.destroy

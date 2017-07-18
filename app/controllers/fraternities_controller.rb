@@ -1,22 +1,27 @@
 class FraternitiesController < ApplicationController
   def index
+    authorize Fraternity
     load_fraternities
   end
 
   def show
     load_fraternity
+    authorize @fraternity
   end
 
   def new
     build_fraternity
+    authorize @fraternity
   end
 
   def edit
     load_fraternity
+    authorize @fraternity
     build_fraternity
   end
 
   def create
+    authorize Fraternity
     @fraternity = CreateFraternity.call(fraternity_params[:name], current_user)
 
     if @fraternity.valid?
@@ -28,6 +33,7 @@ class FraternitiesController < ApplicationController
 
   def update
     load_fraternity
+    authorize @fraternity
     build_fraternity
 
     if @fraternity.save
@@ -57,6 +63,6 @@ class FraternitiesController < ApplicationController
   end
 
   def fraternity_scope
-    current_user.fraternities.all
+    current_user.fraternities
   end
 end
