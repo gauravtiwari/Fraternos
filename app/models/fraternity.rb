@@ -5,4 +5,8 @@ class Fraternity < ApplicationRecord
   has_many :transactions, dependent: :destroy
 
   validates :name, presence: true
+
+  def owner
+    memberships.find_by(role: :owner)
+  end
 end

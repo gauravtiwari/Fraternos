@@ -22,12 +22,12 @@ class FraternitiesController < ApplicationController
 
   def create
     authorize Fraternity
-    @fraternity = CreateFraternity.call(fraternity_params[:name], current_user)
-
-    if @fraternity.valid?
-      redirect_to fraternities_path
-    else
-      render :new
+    CreateFraternity.call(fraternity_params[:name], current_user) do |result|
+      result.success { redirect_to fraternities_path }
+      result.failure do |fraternity|
+        @fraternity = fraternity
+        render :new
+      end
     end
   end
 

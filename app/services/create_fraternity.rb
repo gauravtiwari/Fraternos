@@ -1,7 +1,10 @@
 class CreateFraternity < Service::Base
-  def self.call(name, user)
-    Fraternity.create(name: name).tap do |fraternity|
-      user.memberships.create(fraternity: fraternity, role: :owner)
-    end
+  attribute :name, Types::String
+  attribute :user, Types::Class
+
+  def call
+    fraternity = Fraternity.create(name: name)
+    user.memberships.create(fraternity: fraternity, role: :owner)
+    success(fraternity)
   end
 end

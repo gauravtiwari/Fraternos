@@ -1,10 +1,11 @@
 class GenerateMeetings < Service::Base
-  def self.call(fraternity, options = {})
-    frequency  = options[:frequency]
-    organizers = options[:organizers]
-    starts_on  = options[:starts_on]
-    ends_on    = options[:ends_on]
+  attribute :fraternity, Types::Class
+  attribute :frequency, Types::Int
+  attribute :organizers, Types::Int
+  attribute :starts_on, Types::DateTime
+  attribute :ends_on, Types::DateTime
 
+  def call
     organizers_pool = fraternity.users.shuffle
 
     (starts_on..ends_on).step(frequency).each do |date|
@@ -15,5 +16,7 @@ class GenerateMeetings < Service::Base
         meeting.organizer_assignations.create(organizer: organizers_pool.shift)
       end
     end
+
+    success
   end
 end

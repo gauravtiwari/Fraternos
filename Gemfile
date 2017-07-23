@@ -10,7 +10,9 @@ gem 'rails', '~> 5.1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
+gem 'dry-matcher'
 gem 'dry-monads'
+gem 'dry-struct'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
@@ -22,8 +24,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
@@ -32,6 +37,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

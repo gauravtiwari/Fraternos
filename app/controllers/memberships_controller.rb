@@ -16,7 +16,7 @@ class MembershipsController < ApplicationController
     @membership_form = MembershipForm.new(membership_params)
 
     if @membership_form.valid?
-      CreateMembership.call(@membership_form.email, @membership_form.nickname, fraternity)
+      CreateMembership.call(fraternity: fraternity, **@membership_form.attributes)
 
       redirect_to fraternity_memberships_path(fraternity), notice: notification_for(:invited, User)
     else
