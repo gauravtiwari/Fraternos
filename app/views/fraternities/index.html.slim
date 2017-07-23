@@ -1,8 +1,8 @@
-
 h2 = t('general.title')
 
-.d-inline-block
-  = render(@fraternities) || t('.none')
+.row.no-gutters
+  = render(@fraternities)
+
 .d-inline-block.align-middle
   = link_to new_fraternity_path do
     = icon('plus', class: 'add-fraternity ml-4')

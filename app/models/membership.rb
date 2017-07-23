@@ -7,4 +7,8 @@ class Membership < ApplicationRecord
   validates :role, presence: true
 
   delegate :email, :name, to: :user
+
+  def to_s
+    nickname.present? ? nickname : name
+  end
 end

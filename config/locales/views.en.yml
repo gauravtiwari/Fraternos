@@ -5,6 +5,9 @@ en:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+  fraternities:
+    new:
+      title: Create a Fraternity
   pages:
     home:
       title: Fraternos

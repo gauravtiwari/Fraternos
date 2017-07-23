@@ -43,6 +43,15 @@ class FraternitiesController < ApplicationController
     end
   end
 
+  def destroy
+    load_fraternity
+    authorize @fraternity
+
+    @fraternity.destroy
+
+    redirect_to fraternities_path
+  end
+
   private
 
   def load_fraternity

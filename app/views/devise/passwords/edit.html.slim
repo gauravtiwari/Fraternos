@@ -4,12 +4,14 @@ h2 = t('.title')
   = devise_error_messages!
   = f.hidden_field :reset_password_token
 
-  = f.label :password, t('.new_password')
-  = f.password_field :password, autofocus: true, autocomplete: 'off'
+  = f.field_wrapper :password, class: 'form-group' do
+    = f.label :password, t('.new_password'), class: 'form-control-label'
+    = f.password_field :password, class: 'form-control'
 
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation, autocomplete: 'off'
+  = f.field_wrapper :password_confirmation, class: 'form-group' do
+    = f.label :password_confirmation, class: 'form-control-label'
+    = f.password_field :password_confirmation, class: 'form-control'
 
-  = f.submit t('.submit')
+  = f.submit t('.submit'), class: 'btn btn-success'
 
 = render 'devise/shared/links'

@@ -1,5 +1,6 @@
 = form_for(@fraternity) do |f|
-  = f.label :name
-  = f.text_field :name
+  = f.field_wrapper :name, class: 'form-group' do
+    = f.label :name, class: 'form-control-label'
+    = f.text_field :name, class: 'form-control'
 
-  = f.submit t('actions.save')
+  = f.submit t('actions.save'), class: 'btn btn-success'

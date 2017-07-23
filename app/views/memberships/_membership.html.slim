@@ -1,23 +1,16 @@
-.col-sm-4
-  .card.mx-3.my-5
-    .card-header
-      = membership.nickname || membership.name
-      = membership.email
+.col-md-4.pr-2.pb-2
+  .card.h-100
     .card-body
-      // TODO: Remove these actions from the user index page.
-      .text-center
-        = link_to t('actions.edit'), edit_membership_path(membership)
-        = ' | '
-        = link_to_delete membership, t('action.delete')
-      .row
-        .col-sm-6
-          // TODO: remove placeholder
-          .text-center
-            p Turno 
-            // Placeholder
-            p # 2
-        .col-sm-6
-          .text-center
-            p Deuda
-            // Placeholder
-            p 30 $
+      h4.card-title = membership
+
+      .card-text
+        = membership.email
+
+      - if MembershipPolicy.new(current_user, @fraternity).edit?
+        = link_to t('actions.edit'), edit_membership_path(membership), class: 'card-link'
+
+      - if MembershipPolicy.new(current_user, @fraternity).destroy?
+        = link_to_delete membership, t('action.delete'), class: 'card-link text-danger'
+
+    .card-footer
+      .badge.badge-primary = membership.role

@@ -3,10 +3,12 @@
 = form_for @membership_form, as: :membership, url: fraternity_memberships_path(@fraternity) do |f|
   = @membership_form.errors.full_messages.join(', ')
 
-  = f.label :email
-  = f.email_field :email
+  = f.field_wrapper :email, class: 'form-group' do
+    = f.label :email, class: 'form-control-label'
+    = f.email_field :email, class: 'form-control'
 
-  = f.label :nickname
-  = f.text_field :nickname
+  = f.field_wrapper :nickname, class: 'form-group' do
+    = f.label :nickname, class: 'form-control-label'
+    = f.text_field :nickname, class: 'form-control'
 
-  = f.submit t('actions.save')
+  = f.submit t('actions.save'), class: 'btn btn-success'

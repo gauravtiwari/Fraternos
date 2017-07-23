@@ -7,6 +7,8 @@ en:
     save: Save
   messages:
     delete_prompt: Are you sure?
+  errors:
+    unauthorized: You are not allowed to perform this action.
   notifications:
     destroyed: '%{subject} was removed.'
     not_destroyed: '%{subject} could not removed.'
