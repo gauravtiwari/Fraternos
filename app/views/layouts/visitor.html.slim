@@ -7,6 +7,9 @@ html
     = javascript_include_tag 'application'
 
   body class=[controller_name, action_name]
-    = yield
+    .container
+      = render 'layouts/flash_messages'
+      = yield
+
     .footer
       = render 'shared/footer'

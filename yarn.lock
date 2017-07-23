@@ -857,12 +857,12 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap@4.0.0-alpha.6:
+"bootstrap@git+ssh://git@github.com/twbs/bootstrap.git#v4-dev":
   version "4.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-alpha.6.tgz#4f54dd33ac0deac3b28407bc2df7ec608869c9c8"
+  resolved "git+ssh://git@github.com/twbs/bootstrap.git#6cf1a106d4fcd043f47d3eab4ffef3eaf868ce38"
   dependencies:
     jquery ">=1.9.1"
-    tether "^1.4.0"
+    popper.js "^1.10.1"
 
 brace-expansion@^1.0.0:
   version "1.1.7"
@@ -2359,7 +2359,7 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@>=1.9.1, jquery@^3.2.1:
+jquery@>=1.9.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -3093,6 +3093,10 @@ pkg-dir@^1.0.0:
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"
   dependencies:
     find-up "^1.0.0"
+
+popper.js@^1.10.1:
+  version "1.10.8"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.10.8.tgz#0fd6343e68aa8c1cc8cfe35e02c673500a1bc609"
 
 portfinder@^1.0.9:
   version "1.0.13"
@@ -4309,10 +4313,6 @@ tar@^2.0.0, tar@^2.2.1:
 tcomb@^2.5.1:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-2.7.0.tgz#10d62958041669a5d53567b9a4ee8cde22b1c2b0"
-
-tether@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
 through@~2.3.8:
   version "2.3.8"
