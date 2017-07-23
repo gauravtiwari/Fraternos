@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :fraternities, through: :memberships
   has_many :organizer_assignations, foreign_key: :organizer_id, dependent: :destroy
   has_many :meetings, through: :organizer_assignations
+  has_many :transactions
+  has_many :payments
+  has_many :debts
 
   validates :name, presence: true
 
