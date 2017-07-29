@@ -1,9 +1,10 @@
 .homepage {
-  height: 100vh;
+  min-height: 100vh;
+  top: 0;
 }
 
 .sign-in {
-  padding-top: 25%;
+  min-height: 100%;
 }
 
 .btn-sign-in {

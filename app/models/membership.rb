@@ -9,6 +9,11 @@ class Membership < ApplicationRecord
   delegate :email, :name, to: :user
 
   def to_s
-    nickname.present? ? nickname : name
+    return '' unless name_present?
+    nickname.present? ? nickname : user.name
+  end
+
+  def name_present?
+    nickname.present? || user.name.present?
   end
 end

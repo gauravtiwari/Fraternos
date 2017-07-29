@@ -1,16 +1,19 @@
-.card.user-header
-  .row
-    .col-sm-4
-      h2 = t('general.title')
-    .col-sm-4
-      p = t('.welcome', subject: current_user.name)
-    .col-sm-4.text-right
-      = icon('cog')
-  .row
-    .col-sm-4
-      h3 = @fraternity.name
-    .col.sm-8
-      h4 = t('.upcoming_events')
-      - if @fraternity&.meetings&.upcoming
-        p = t('.event_name')
-        p = t('.hosts')
+.full-width
+  .card.user-header
+    .container
+      .row
+        .col-sm-4
+          h2 = t('general.title')
+        .col-sm-4
+          = t('.welcome', subject: current_user.name)
+          = link_to t('actions.sign_out'), destroy_user_session_path, method: 'delete', class: 'ml-2'
+        .col-sm-4.text-right
+          = icon('cog')
+      .row
+        .col-sm-4
+          h3.position-bottom.pb-4 = @fraternity.name
+        .col.sm-8
+          h5.pl-5 = t('.upcoming_events')
+          - if @fraternity&.meetings&.upcoming
+            p = t('.event_name')
+            p = t('.hosts')

@@ -1,0 +1,14 @@
+html {
+  overflow-x: hidden;
+}
+
+.full-width {
+  margin-left: calc(-#{$grid-gutter-width} / 2);
+  margin-right: calc(-#{$grid-gutter-width} / 2);
+}
+
+.position-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

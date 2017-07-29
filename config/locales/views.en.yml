@@ -8,6 +8,8 @@ en:
   fraternities:
     new:
       title: Create a Fraternity
+    index:
+      my_fraternities: My Fraternities
   pages:
     home:
       title: Fraternos

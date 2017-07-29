@@ -1,16 +1,11 @@
 $black: #000;
 
-.fraternity-card {
-  width: 20rem;
-}
-
 .member-count {
-  border: 1px solid $black;
-  border-radius: 100%;
-  height: 30px;
-  width: 30px;
+  background-color: gray;
+  position: absolute;
+  right: 10px;
 }
 
 .add-fraternity {
-  font-size: 40px;
+  font-size: 70px;
 }

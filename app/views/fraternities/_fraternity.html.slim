@@ -1,19 +1,5 @@
-.col-md-4.pr-2.pb-2
-  .card.h-100
-    .card-body
-      h4.card-title
-        = link_to fraternity.name, fraternity_memberships_path(fraternity), class: 'mr-5'
+li.list-group-item
+  span.badge.member-count = fraternity.users.count
+  h1 = link_to fraternity.name, fraternity_memberships_path(fraternity), class: ''
 
-        .member-count.text-center.align-middle.float-right
-          = fraternity.users.count
-      .card-text
 
-      - if policy(fraternity).edit?
-        = link_to edit_fraternity_path(fraternity), class: 'card-link' do
-          = t('actions.edit')
-
-      - if policy(fraternity).destroy?
-        = link_to_delete(fraternity, class: 'card-link text-danger') do
-          = t('actions.delete')
-
-    .card-footer

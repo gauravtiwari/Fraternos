@@ -1,16 +1,13 @@
-.col-md-4.pr-2.pb-2
-  .card.h-100
-    .card-body
-      h4.card-title = membership
+li.list-group-item.member-group-item.mb-4
+  .d-block.mb-2
+    .badge.badge-primary = membership.role
 
-      .card-text
-        = membership.email
+    - if MembershipPolicy.new(current_user, @fraternity).edit?
+      = link_to t('actions.edit'), edit_membership_path(membership), class: 'card-link ml-2'
 
-      - if MembershipPolicy.new(current_user, @fraternity).edit?
-        = link_to t('actions.edit'), edit_membership_path(membership), class: 'card-link'
+    - if MembershipPolicy.new(current_user, @fraternity).destroy?
+      = link_to_delete membership, t('action.delete'), class: 'card-link text-danger ml-2'
 
-      - if MembershipPolicy.new(current_user, @fraternity).destroy?
-        = link_to_delete membership, t('action.delete'), class: 'card-link text-danger'
-
-    .card-footer
-      .badge.badge-primary = membership.role
+  h4.d-inline-block = membership
+  .ml-2.d-inline-block = membership.email
+  

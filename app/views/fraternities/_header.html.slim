@@ -1,0 +1,12 @@
+.card.user-header
+  .container
+    .row
+      .col-sm-4
+        h2 = t('general.title')
+      .col-sm-4
+        = t('shared.user_header.welcome', subject: current_user.name)
+        = link_to t('actions.sign_out'), destroy_user_session_path, method: 'delete', class: 'ml-2'
+      .col-sm-4.text-right
+        = icon('cog')
+  .text-center.position-bottom
+    h2 = t('fraternities.my_fraternities')

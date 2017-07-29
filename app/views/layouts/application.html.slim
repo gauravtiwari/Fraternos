@@ -7,10 +7,8 @@ html
     = javascript_include_tag 'application'
 
   body class=[controller_name, action_name]
-    .container
+    .container-fluid
       = render 'layouts/flash_messages'
-      = current_user.name
-      = link_to t('actions.sign_out'), destroy_user_session_path, method: 'delete'
       = yield
       .footer
         = render 'shared/footer'
