@@ -17,3 +17,9 @@
           - if @fraternity&.meetings&.upcoming
             p = t('.event_name')
             p = t('.hosts')
+
+  ul.nav.nav-tabs
+    li.nav-item.text-center
+      = link_to 'Members', fraternity_memberships_path(1), class: "nav-link #{'active' if controller_name == 'memberships'}"
+    li.nav-item.text-center
+      = link_to 'Events', fraternity_meetings_path(1), class: "nav-link #{'active' if controller_name == 'meetings'}"

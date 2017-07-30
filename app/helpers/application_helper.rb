@@ -81,4 +81,12 @@ module ApplicationHelper
 
     (args + classes.compact).join(' ').strip
   end
+
+  def frequency_options
+    [['daily', 1], ['weekly', 7], ['bi weekly', 14]]
+  end
+
+  def organizer_options
+    [1, 2, 3, 4, 5].map { |n| [n, n] }
+  end
 end

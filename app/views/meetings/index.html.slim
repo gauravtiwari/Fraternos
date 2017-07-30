@@ -1,0 +1,8 @@
+= render 'shared/user_header'
+
+.text-center
+  = link_to t('.random_generator'), new_fraternity_meeting_path, class: 'px-5 my-5 btn btn-primary'
+
+.container
+  ul.list-group
+    = render(@meetings) || t('.no_meetings')

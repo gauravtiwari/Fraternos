@@ -6,6 +6,11 @@ class Meeting < ApplicationRecord
   has_many :attendance_records
 
   scope :upcoming, -> { where('date >= ?', Time.zone.today).order(:date) }
+  scope :ordered, -> { order(date: :desc) }
 
   validates :date, presence: true
+
+  def to_s
+    "Turno #{date.strftime('%m/%d')}"
+  end
 end

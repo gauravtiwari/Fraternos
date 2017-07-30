@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :transactions, only: %i[index show]
     resources :payments, only: %i[new create]
     resources :debts, only: %i[new create]
+    resources :meetings, only: %i[index new create]
   end
 
   root 'pages#home'

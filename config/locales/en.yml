@@ -5,6 +5,7 @@ en:
     send: Send
     back: Back
     save: Save
+    generate: Generate
   messages:
     delete_prompt: Are you sure?
   errors:

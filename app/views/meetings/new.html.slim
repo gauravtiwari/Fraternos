@@ -1,0 +1,21 @@
+h1 Generate Meeting
+
+= form_for @meetings_form, as: :meeting, url: fraternity_meetings_path(@fraternity) do |f|
+
+  = f.field_wrapper :starts_on, class: 'form-group' do
+    = f.label :starts_on, class: 'form-control-label'
+    = f.date_field :starts_on, class: 'form-control'
+
+  = f.field_wrapper :ends_on, class: 'form-group' do
+    = f.label :ends_on, class: 'form-control-label'
+    = f.date_field :ends_on, class: 'form-control'
+
+  = f.field_wrapper :frequency, class: 'form-group' do
+    = f.label :frequency, class: 'form-control-label'
+    = f.select :frequency, frequency_options, class: 'form-control'
+
+  = f.field_wrapper :organizers, class: 'form-group' do
+    = f.label :organizers, class: 'form-control-label'
+    = f.select :organizers, organizer_options, class: 'form-control'
+
+  = f.submit t('actions.generate'), class: 'btn btn-success'
