@@ -83,10 +83,6 @@ module ApplicationHelper
   end
 
   def frequency_options
-    [['daily', 1], ['weekly', 7], ['bi weekly', 14]]
-  end
-
-  def organizer_options
-    [1, 2, 3, 4, 5].map { |n| [n, n] }
+    [[t('general.daily'), 1], [t('general.weekly'), 7], [t('general.bi_weekly'), 14]]
   end
 end

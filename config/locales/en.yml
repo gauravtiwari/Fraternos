@@ -1,6 +1,9 @@
 en:
   general:
     title: Fraternos
+    daily: Daily
+    weekly: Weekly
+    bi_weekly: Bi weekly
   actions:
     send: Send
     back: Back

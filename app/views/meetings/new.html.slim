@@ -16,6 +16,6 @@ h1 Generate Meeting
 
   = f.field_wrapper :organizers, class: 'form-group' do
     = f.label :organizers, class: 'form-control-label'
-    = f.select :organizers, organizer_options, class: 'form-control'
+    = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control'
 
   = f.submit t('actions.generate'), class: 'btn btn-success'
