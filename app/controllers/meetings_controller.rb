@@ -3,17 +3,43 @@ class MeetingsController < ApplicationController
     load_meetings
   end
 
+  def show
+    load_meeting
+  end
+
   def new
-    fraternity
-    @meetings_form = MeetingForm.new
+    build_meeting
   end
 
   def create
-    meeting_form = MeetingForm.new(meetings_params)
+    build_meeting
 
-    if meeting_form.valid?
-      GenerateMeetings.call(fraternity: fraternity, organizers: fraternity.users, **meeting_form.attributes)
-      
+    if @meeting.save
+      params[:organizers].each do |organizer|
+        @meeting.organizer_assignation.create(organizer: organizer)
+      end
+
+      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    load_meeting
+  end
+
+  def update
+    load_meeting
+    build_meeting
+
+    if @meeting.save
+      @meeting.organizer_assignation.delete_all
+
+      params[:organizers].each do |organizer|
+        @meeting.organizer_assignation.create(organizer: organizer)
+      end
+
       redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
     else
       render :new
@@ -23,7 +49,7 @@ class MeetingsController < ApplicationController
   private
 
   def meetings_params
-    params.fetch(:meeting, {}).permit(:starts_on, :ends_on, :frequency, :organizers)
+    params.fetch(:meeting, {}).permit(:date)
   end
 
   def build_meeting

@@ -10,6 +10,12 @@ en:
       title: Create a Fraternity
     index:
       my_fraternities: My Fraternities
+  meetings:
+    new:
+      title: New Meeting
+  batch_meetings:
+    new:
+      title: Generate Meeting
   pages:
     home:
       title: Fraternos
