@@ -11,6 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def body_classes
+    [controller_name, action_name].map(&:dasherize)
+  end
+
   def flash_class_for(flash_type)
     css_class = {
       alert: 'warning', error: 'danger', notice: 'info', success: 'success'
