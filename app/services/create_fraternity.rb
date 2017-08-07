@@ -4,6 +4,7 @@ class CreateFraternity < Service::Base
 
   def call
     fraternity = Fraternity.create(name: name)
+    return failure(fraternity) if fraternity.invalid?
     user.memberships.create(fraternity: fraternity, role: :owner)
     success(fraternity)
   end
