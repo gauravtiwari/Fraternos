@@ -1,0 +1,14 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-primary
+  = link_to authenticated_root_path, class: 'navbar-brand' do
+    = t('general.title')
+  = button_tag class: 'navbar-toggler', data: { toggle: 'collapse', taget: '"#navigation' } do
+    span.navbar-toggler-icon
+  #navigation.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link[href='#']
+          | Home
+          span.sr-only
+            | (current)
+
+
