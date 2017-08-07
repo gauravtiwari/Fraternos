@@ -859,10 +859,10 @@ boom@2.x.x:
 
 "bootstrap@git+ssh://git@github.com/twbs/bootstrap.git#v4-dev":
   version "4.0.0-alpha.6"
-  resolved "git+ssh://git@github.com/twbs/bootstrap.git#6cf1a106d4fcd043f47d3eab4ffef3eaf868ce38"
+  resolved "git+ssh://git@github.com/twbs/bootstrap.git#cd3507aba69a01758f804c6f7fccfeb6866a764f"
   dependencies:
     jquery ">=1.9.1"
-    popper.js "^1.10.1"
+    popper.js "^1.11.0"
 
 brace-expansion@^1.0.0:
   version "1.1.7"
@@ -3094,9 +3094,9 @@ pkg-dir@^1.0.0:
   dependencies:
     find-up "^1.0.0"
 
-popper.js@^1.10.1:
-  version "1.10.8"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.10.8.tgz#0fd6343e68aa8c1cc8cfe35e02c673500a1bc609"
+popper.js@^1.11.0:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.11.1.tgz#f5aca9a73bca1ce1fdbd9be8b1ba68677cbdd8e0"
 
 portfinder@^1.0.9:
   version "1.0.13"
