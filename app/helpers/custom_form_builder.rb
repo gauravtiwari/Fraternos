@@ -10,16 +10,15 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     content = capture(&block)
 
     if errors.any?
-      classes.push('has-danger')
+      fragment = Nokogiri::HTML::DocumentFragment.parse(content)
 
-      elements = Nokogiri::HTML::DocumentFragment.parse(content)
-
-      elements
+      fragment
+        .children
         .select { |element| FIELDS.include? element.node_name }
         .select { |element| %w[checkbox radio hidden].exclude? element[:type] }
-        .each   { |field| field[:class] = "form-control-danger #{field[:class]}".strip }
+        .each   { |field| field[:class] = "is-invalid #{field[:class]}".strip }
 
-      content = safe_join([elements.to_html.html_safe, *html_errors(errors)]) # rubocop:disable Rails/OutputSafety
+      content = safe_join([fragment.to_html.html_safe, *html_errors(errors)]) # rubocop:disable Rails/OutputSafety
     end
 
     content_tag :div, class: classes.join(' '), **options do
@@ -30,6 +29,6 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def html_errors(errors)
-    errors.map { |error| content_tag(:div, error, class: 'form-control-feedback') }
+    errors.map { |error| content_tag(:div, error, class: 'invalid-feedback') }
   end
 end
