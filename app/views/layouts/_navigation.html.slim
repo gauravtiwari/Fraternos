@@ -1,0 +1,8 @@
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  = link_to t('general.title'), root_url, class: 'navbar-brand'
+
+  ul.navbar-nav.ml-auto.justify-content-end
+    li.nav-item
+      = link_to root_url, class: 'nav-link' do
+        h2.my-auto = icon('cog')

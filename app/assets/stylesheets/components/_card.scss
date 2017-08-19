@@ -1,0 +1,15 @@
+.card.calendar {
+  width: 5rem;
+  border: 1px solid black;
+  border-radius: 15px;
+  overflow-y: hidden;
+  & > .card-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  & > .card-body {
+    font-size: 2rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}

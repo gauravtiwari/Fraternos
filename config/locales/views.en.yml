@@ -13,6 +13,11 @@ en:
   meetings:
     new:
       title: New Meeting
+  memberships:
+    new:
+      title: Add New Member
+      email: Email
+      nickname: Nickname
   batch_meetings:
     new:
       title: Generate Meeting

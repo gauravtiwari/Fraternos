@@ -20,3 +20,7 @@ en:
     user_header:
       welcome: 'Welcome, %{subject}'
       upcoming_events: 'Upcoming Event'
+  date:
+    formats:
+      month_abbreviated: '%b'
+      day: '%d'
