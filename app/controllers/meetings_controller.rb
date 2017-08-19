@@ -15,8 +15,9 @@ class MeetingsController < ApplicationController
     build_meeting
 
     if @meeting.save
-      params[:organizers].each do |organizer|
-        @meeting.organizer_assignation.create(organizer: organizer)
+      fraternity.users.find(params[:organizers]).each do |organizer|
+        binding.pry
+        @meeting.organizer_assignations.create(organizer: organizer)
       end
 
       redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
