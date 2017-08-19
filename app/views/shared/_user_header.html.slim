@@ -1,25 +1,17 @@
 .full-width
-  .card.user-header
+  .user-header
     .container
-      .row
-        .col-sm-4
-          h2 = t('general.title')
-        .col-sm-4
-          = t('.welcome', subject: current_user.name)
-          = link_to t('actions.sign_out'), destroy_user_session_path, method: 'delete', class: 'ml-2'
-        .col-sm-4.text-right
-          = icon('cog')
-      .row
-        .col-sm-4
-          h3.position-bottom.pb-4 = @fraternity.name
-        .col.sm-8
-          h5.pl-5 = t('.upcoming_events')
-          - if @fraternity&.meetings&.upcoming
-            p = t('.event_name')
-            p = t('.hosts')
+      .d-flex.py-4
+        .d-flex.align-items-top
+          h1 = @fraternity.name
+        .w-100.d-flex.justify-content-end
+          div
+            h5.text-center = t('.upcoming_events')
+            - if @upcoming = @fraternity&.meetings&.upcoming&.first
 
-  ul.nav.nav-tabs
-    li.nav-item.text-center
-      = link_to 'Members', fraternity_memberships_path(1), class: "nav-link #{'active' if controller_name == 'memberships'}"
-    li.nav-item.text-center
-      = link_to 'Events', fraternity_meetings_path(1), class: "nav-link #{'active' if controller_name == 'meetings'}"
+              .d-flex.justify-content-center
+                .card.calendar
+                  .card-header.bg-primary.text-white
+                    .text-center.font-weight-bold.mx-auto = I18n.localize(@upcoming.date, format: :month_abbreviated)
+                  .card-body
+                      .text-center = @upcoming.date.strftime('%d')
