@@ -1,19 +1,36 @@
-= form_for @meetings_form, as: :meeting, url: fraternity_batch_meetings_path(@fraternity) do |f|
+= render 'shared/user_header'
+.form-card.my-5.mx-auto.pb-5.px-4
+  .my-2
+    = link_to fraternity_meetings_path(@fraternity) do
+      = icon('chevron-circle-left') + ' ' + t('general.back')
+  .card.px-4.py-4 
+    h4.mb-4.text-center = yield(:title)
+    = form_for @meetings_form, as: :meeting, url: fraternity_batch_meetings_path(@fraternity) do |f|
 
-  = f.field_wrapper :starts_on, class: 'form-group' do
-    = f.label :starts_on, class: 'form-control-label'
-    = f.date_field :starts_on, class: 'form-control'
+      = f.field_wrapper :starts_on, class: 'form-group' do
+        = f.label :starts_on, class: 'form-control-label'
+        .input-group
+          .input-group-addon#basic-addon1
+            = icon('calendar')
+          = f.date_field :starts_on, class: 'form-control'
 
-  = f.field_wrapper :ends_on, class: 'form-group' do
-    = f.label :ends_on, class: 'form-control-label'
-    = f.date_field :ends_on, class: 'form-control'
+      = f.field_wrapper :ends_on, class: 'form-group' do
+        = f.label :ends_on, class: 'form-control-label'
+        .input-group
+          .input-group-addon#basic-addon1
+            = icon('calendar')
+          = f.date_field :ends_on, class: 'form-control'
 
-  = f.field_wrapper :frequency, class: 'form-group' do
-    = f.label :frequency, class: 'form-control-label'
-    = f.select :frequency, frequency_options, class: 'form-control'
-
-  = f.field_wrapper :organizers, class: 'form-group' do
-    = f.label :organizers, class: 'form-control-label'
-    = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control'
-
-  = f.submit t('actions.generate'), class: 'btn btn-success'
+      .row
+        .col-md-6.text-center
+          = f.field_wrapper :frequency, class: 'form-group' do
+            = f.label :frequency, class: 'form-control-label'
+            br
+            = f.select :frequency, frequency_options, class: 'form-control'
+        .col-md-6.text-center
+          = f.field_wrapper :organizers, class: 'form-group' do
+            = f.label :organizers, class: 'form-control-label'
+            br
+            = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control'
+      .text-center.mt-4
+        = f.submit t('actions.generate'), class: 'btn btn-primary px-5'
