@@ -1,11 +1,11 @@
 .btn.btn-primary.multi-select {
-  background: white;
-  color: #007bff;
+  background: $white;
+  color: $blue;
 }
 .btn.btn-primary.multi-select.focus {
   box-shadow: none;
 }
 .btn.btn-primary.multi-select.active {
-  background: #007bff;
-  color: white;
+  background: $blue;
+  color: $white;
 }

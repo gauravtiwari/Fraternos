@@ -1,6 +1,6 @@
 .card.calendar {
   width: 5rem;
-  border: 1px solid black;
+  border: 1px solid $black;
   border-radius: 15px;
   overflow-y: hidden;
   & > .card-header {

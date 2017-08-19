@@ -2,10 +2,10 @@
   .nav-link  {
   font-size: 1.5em;
   background: transparent;
-  color: #495057;
+  color: $gray-700;
   }
   .nav-link:hover {
-    color: #868e96;
+    color: $gray-600;
   }
   .nav-link.active {
     background: transparent;
