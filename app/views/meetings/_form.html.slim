@@ -1,8 +1,24 @@
-= form_for @meeting, url: fraternity_meetings_path(@meeting.fraternity) do |f|
-  = f.field_wrapper :date, class: 'form-group' do
-    = f.label :date, class: 'form-control-label'
-    = f.date_field :date, class: 'form-control'
-  
-  = f.submit t('actions.save'), class: 'btn btn-success'
+= render 'shared/user_header'
+.form-card.my-5.mx-auto.pb-5.px-4
+  .my-2
+    = link_to fraternity_meetings_path(@meeting.fraternity) do
+      = icon('chevron-circle-left') + ' ' + t('general.back')
+  .card.py-5.px-4
+    h4.mb-4.text-center
+      = yield(:title)
 
-  // TODO: Add multiple select for member
+    = form_for @meeting, url: fraternity_meetings_path(@meeting.fraternity) do |f|
+      = f.field_wrapper :date, class: 'form-group input-group' do
+        .input-group-addon#basic-addon1
+          = icon('calendar')
+        = f.date_field :date, class: 'form-control', placeholder: t('.date')
+      
+      = f.field_wrapper :organizers, class: 'form-group btn-group d-block', data: { toggle: 'buttons'} do
+        .text-center = t('.organizers')
+        - @meeting.fraternity.memberships.each do |member|
+          .btn.btn-primary.multi-select.d-block.my-1.rounded
+            = check_box_tag 'organizers[]', member.id
+            = member
+
+      .mt-5.text-center
+        = f.submit t('actions.save'), class: 'btn btn-primary px-5'
