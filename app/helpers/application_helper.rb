@@ -85,4 +85,8 @@ module ApplicationHelper
   def frequency_options
     [[t('general.daily'), 1], [t('general.weekly'), 7], [t('general.bi_weekly'), 14]]
   end
+
+  def text_with_icon(left_content, right_content)
+    safe_join([left_content, right_content], ' ')
+  end
 end
