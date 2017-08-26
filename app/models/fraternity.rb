@@ -9,4 +9,8 @@ class Fraternity < ApplicationRecord
   def owner
     memberships.find_by(role: :owner)
   end
+
+  def next_meeting
+    meetings&.upcoming&.first
+  end
 end
