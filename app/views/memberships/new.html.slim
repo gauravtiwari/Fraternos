@@ -12,13 +12,13 @@
 
       = f.field_wrapper :email, class: 'form-group mb-4' do
         .input-group
-          span.input-group-addon#basic-addon1
+          span.input-group-addon
             = icon('envelope')
           = f.email_field :email, class: 'form-control', placeholder: t('.email')
 
       = f.field_wrapper :nickname, class: 'form-group mb-4' do
         .input-group
-          span.input-group-addon#basic-addon1
+          span.input-group-addon
             = icon('user-circle')
           = f.text_field :nickname, class: 'form-control', placeholder: t('.nickname')
       .text-center

@@ -9,7 +9,7 @@
 
     = form_for @meeting, url: fraternity_meetings_path(@meeting.fraternity) do |f|
       = f.field_wrapper :date, class: 'form-group input-group' do
-        .input-group-addon#basic-addon1
+        .input-group-addon
           = icon('calendar')
         = f.date_field :date, class: 'form-control', placeholder: t('.date')
       
