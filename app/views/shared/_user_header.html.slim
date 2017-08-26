@@ -10,7 +10,7 @@
             - if @upcoming = @fraternity&.next_meeting
 
               .d-flex.justify-content-center
-                .card.calendar
+                .card.calendar-card
                   .card-header.bg-primary.text-white
                     .text-center.font-weight-bold.mx-auto = I18n.localize(@upcoming.date, format: :month_abbreviated)
                   .card-body
