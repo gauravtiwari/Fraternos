@@ -29,6 +29,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'
+  gem 'rubocop', require: false
+  gem 'scss_lint', require: false
 end
 
 group :development do
