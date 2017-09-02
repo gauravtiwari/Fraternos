@@ -1,6 +1,28 @@
 .btn.btn-primary.multi-select {
   background: $white;
   color: $blue;
+  cursor: pointer;
+
+  &.attendace {
+    color: $black;
+    text-align: left;
+    border-color: $black;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+
+    &.active {
+      background: $red !important;
+      box-shadow: none;
+
+      & > .badge.badge-warning {
+        display: inline-block;
+      }
+    }
+
+    & > .badge.badge-warning {
+      display: none;
+      color: $white;
+    }
+  }
 }
 .btn.btn-primary.multi-select.focus {
   box-shadow: none;

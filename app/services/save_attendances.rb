@@ -1,14 +1,22 @@
 class SaveAttendances < Service::Base
   attribute :meeting, Types::Class
-  attribute :present_user_ids, Types::Array
+  attribute :absent_user_ids, Types::Array
 
   def call
-    meeting.fraternity.users.find_each do |user|
-      meeting.attendance_records.create(
-        user: user, presence: present_user_ids.includes?(user.id)
-      )
+    ActiveRecord::Base.transaction do
+      meeting.fraternity.users.find_each do |user|
+        record = meeting.attendance_records.create(user: user, presence: absent_user_ids.exclude?(user.id.to_s))
+
+        if !record.presence? && penalty?
+          user.debts.create(fraternity_id: meeting.fraternity.id, amount: meeting.fraternity.absent_penalty)
+        end
+      end
     end
 
     success
+  end
+
+  def penalty?
+    meeting.fraternity.absent_penalty.negative?
   end
 end

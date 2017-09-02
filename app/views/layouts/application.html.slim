@@ -10,6 +10,9 @@ html
 
   body class=[controller_name, action_name]
     = render 'layouts/navigation'
+
+    - if on_fraternity?
+      = render 'shared/user_header'
     .container-fluid
       = render 'layouts/flash_messages'
       = yield

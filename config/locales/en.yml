@@ -24,3 +24,4 @@ en:
     formats:
       month_abbreviated: '%b'
       day: '%d'
+      date_with_day_in_words: '%a, %D'

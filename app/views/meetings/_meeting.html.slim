@@ -1,2 +1,14 @@
-li.list-group-item
-  h4 = meeting
+= link_to fraternity_meeting_path(meeting.fraternity, meeting) do
+  li.list-group-item.meeting-item.my-2
+    .d-flex
+      .card.calendar-card.small
+        .card-header.bg-danger.text-white
+          .full-width
+            .text-center.font-weight-bold.mx-auto = I18n.localize(meeting.date, format: :month_abbreviated)
+        .card-body
+          .text-center = meeting.date.strftime('%d')
+      .d-block
+        .ml-3.d-block
+          p.text-small.py-0.my-0.text-secondary = t('.organizers')
+        .my-auto.ml-3.d-block
+          h4.py-0.my-0 = meeting.organizers_names

@@ -1,29 +1,24 @@
 class PaymentsController < ApplicationController
-  def new
-    build_payment
-    authorize @payment
-  end
-
   def create
     build_payment
     authorize @payment
 
     if @payment.save
-      redirect_to fraternity_path(params[:fraternity_id])
+      redirect_to fraternity_memberships_path(fraternity), notice: notification_for(:created, Payment)
     else
-      render :new
+      redirect_to fraternity_memberships_path(fraternity)
     end
   end
 
   private
 
   def payment_params
-    params.fetch(:debt, {}).permit(:amount, :user_id)
+    params.fetch(:payment, {}).permit(:amount, :user_id)
   end
 
   def build_payment
     @payment ||= payment_scope.build
-    @payment.attributes ||= payment_params
+    @payment.attributes = payment_params
   end
 
   def load_payment

@@ -1,17 +1,17 @@
-.full-width
-  .user-header
-    .container
-      .d-flex.py-4
-        .d-flex.align-items-top
-          h1 = @fraternity.name
-        .w-100.d-flex.justify-content-end
-          div
-            h5.text-center = t('.upcoming_events')
-            - if @upcoming = @fraternity&.next_meeting
+.user-header
+  .container
+    .d-flex.py-4
+      .d-flex.align-items-top
+        h1 = @fraternity&.name
+      .w-100.d-flex.justify-content-end
+        div
+          h5.text-center = t('.upcoming_events')
+          - if @upcoming = @fraternity&.next_meeting
 
-              .d-flex.justify-content-center
+            .d-flex.justify-content-center
+              = link_to fraternity_meeting_path(@fraternity, @upcoming) do
                 .card.calendar-card
                   .card-header.bg-primary.text-white
                     .text-center.font-weight-bold.mx-auto = I18n.localize(@upcoming.date, format: :month_abbreviated)
                   .card-body
-                      .text-center = @upcoming.date.strftime('%d')
+                    .text-center = @upcoming.date.strftime('%d')

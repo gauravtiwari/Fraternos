@@ -16,3 +16,25 @@ html {
 ul.nav-tabs :first-child {
   width: 50vw;
 }
+
+.text-small {
+  font-size: 12px;
+}
+
+.elevate {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.elevate-low {
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.expandable-debt {
+  font-size: 1em;
+  max-width: 50px;
+  width: 50px;
+}
+
+a:hover {
+  text-decoration: none;
+}

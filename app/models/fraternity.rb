@@ -3,6 +3,8 @@ class Fraternity < ApplicationRecord
   has_many :users, through: :memberships
   has_many :meetings, dependent: :destroy
   has_many :transactions, dependent: :destroy
+  has_many :payments
+  has_many :debts
 
   validates :name, presence: true
 

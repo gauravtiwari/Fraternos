@@ -13,6 +13,15 @@ en:
   meetings:
     new:
       title: New Meeting
+    edit:
+      title: Edit Meeting
+    meeting:
+      organizers: Organizers
+    show:
+      title: Meeting
+      organizers: Organizers
+      attendance: Attendance
+      absent: Absent
   memberships:
     new:
       title: Add New Member

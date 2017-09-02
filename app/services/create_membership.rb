@@ -4,8 +4,9 @@ class CreateMembership < Service::Base
   attribute :fraternity, Types::Class
 
   def call
-    member = User.invite!(email: email)
-    member.memberships
+    member = User.invite!(email: email, name: nickname)
+    member
+      .memberships
       .create_with(nickname: nickname, role: :member)
       .find_or_create_by(fraternity: fraternity)
 

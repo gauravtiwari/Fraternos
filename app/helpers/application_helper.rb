@@ -72,6 +72,7 @@ module ApplicationHelper
   def class_string(*args)
     classes_hash = args.last.is_a?(Hash) ? args.pop : {}
     classes = classes_hash.map do |css_class, condition|
+
       if css_class.is_a?(Array)
         condition ? css_class.first : css_class.last
       elsif condition
@@ -86,7 +87,11 @@ module ApplicationHelper
     [[t('general.daily'), 1], [t('general.weekly'), 7], [t('general.bi_weekly'), 14]]
   end
 
-  def text_with_icon(left_content, right_content)
-    safe_join([left_content, right_content], ' ')
+  def text_with_icon(icon_name, text)
+    safe_join([icon(icon_name), text], ' ')
+  end
+
+  def on_fraternity?
+    return true if request.path_info.match?(/fraternities/)
   end
 end

@@ -1,24 +1,23 @@
-= render 'shared/user_header'
 .form-card.my-5.mx-auto.pb-5.px-4
   .my-2
     = link_to fraternity_meetings_path(@meeting.fraternity) do
-      = text_with_icon(icon('chevron-circle-left'), t('general.back'))
+      = text_with_icon('chevron-circle-left', t('general.back'))
   .card.py-5.px-4
     h4.mb-4.text-center
       = yield(:title)
 
-    = form_for @meeting, url: fraternity_meetings_path(@meeting.fraternity) do |f|
+    = form_for [@fraternity, @meeting] do |f|
       = f.field_wrapper :date, class: 'form-group input-group' do
         .input-group-addon
           = icon('calendar')
         = f.date_field :date, class: 'form-control', placeholder: t('.date')
-      
-      = f.field_wrapper :organizers, class: 'form-group btn-group d-block', data: { toggle: 'buttons'} do
+      = f.field_wrapper :organizer_ids, class: 'form-group btn-group d-block', data: { toggle: 'buttons'} do
         .text-center = t('.organizers')
-        - @meeting.fraternity.memberships.each do |member|
-          .btn.btn-primary.multi-select.d-block.my-1.rounded
-            = check_box_tag 'organizers[]', member.id
-            = member
+
+        = f.collection_check_boxes :organizer_ids, @meeting.fraternity.memberships.all, :user_id, :to_s, {}, multiple: true do |ff|
+            .btn.btn-primary.multi-select.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
+              = ff.label { ff.check_box }
+              = ff.object.to_s
 
       .mt-5.text-center
         = f.submit t('actions.save'), class: 'btn btn-primary px-5'

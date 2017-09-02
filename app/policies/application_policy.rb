@@ -39,7 +39,7 @@ class ApplicationPolicy
   end
 
   def fraternity_admin?
-    user.memberships.exists?(role: :admin, fraternity: fraternity)
+    user.memberships.exists?(role: %i[admin owner], fraternity: fraternity)
   end
 
   def scope

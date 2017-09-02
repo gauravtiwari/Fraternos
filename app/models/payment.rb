@@ -1,3 +1,5 @@
 class Payment < Transaction
-  validates :amount, presence: true, numericality: { greater_than: 0 }
+  def amount=(value)
+    super value.to_f.abs
+  end
 end

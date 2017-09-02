@@ -1,17 +1,12 @@
 class DebtsController < ApplicationController
-  def new
-    build_debt
-    authorize @debt
-  end
-
   def create
     build_debt
     authorize @debt
 
     if @debt.save
-      redirect_to fraternity_path(params[:fraternity_id])
+      redirect_to fraternity_memberships_path(fraternity), notice: notification_for(:created, Debt)
     else
-      render :new
+      redirect_to fraternity_memberships_path(fraternity)
     end
   end
 
@@ -23,7 +18,7 @@ class DebtsController < ApplicationController
 
   def build_debt
     @debt ||= debt_scope.build
-    @debt.attributes ||= debt_params
+    @debt.attributes = debt_params
   end
 
   def load_debt

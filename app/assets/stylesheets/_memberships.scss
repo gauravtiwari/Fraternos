@@ -5,8 +5,13 @@
 .member-group-item {
   border: 1px solid $black;
   border-radius: 5px 5px 5px 5px !important;
+  max-height: 5rem;
 }
 
 .form-card {
   max-width: 30rem;
+}
+
+.member-debt {
+  margin-right: 0.5px;
 }

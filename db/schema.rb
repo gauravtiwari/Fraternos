@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615211412) do
+ActiveRecord::Schema.define(version: 20170612202202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170615211412) do
 
   create_table "fraternities", force: :cascade do |t|
     t.string "name", null: false
+    t.decimal "absent_penalty", precision: 8, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,9 +45,9 @@ ActiveRecord::Schema.define(version: 20170615211412) do
     t.bigint "user_id"
     t.bigint "fraternity_id"
     t.integer "role", null: false
+    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
     t.index ["fraternity_id"], name: "index_memberships_on_fraternity_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
@@ -63,8 +64,7 @@ ActiveRecord::Schema.define(version: 20170615211412) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "type"
-    t.date "date", null: false
-    t.decimal "amount", precision: 2, null: false
+    t.decimal "amount", precision: 8, scale: 2, null: false
     t.bigint "fraternity_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

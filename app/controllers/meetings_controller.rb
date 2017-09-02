@@ -5,9 +5,11 @@ class MeetingsController < ApplicationController
 
   def show
     load_meeting
+    @fraternity = @meeting.fraternity
   end
 
   def new
+    load_fraternity
     build_meeting
   end
 
@@ -15,11 +17,6 @@ class MeetingsController < ApplicationController
     build_meeting
 
     if @meeting.save
-      fraternity.users.find(params[:organizers]).each do |organizer|
-        binding.pry
-        @meeting.organizer_assignations.create(organizer: organizer)
-      end
-
       redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
     else
       render :new
@@ -27,6 +24,7 @@ class MeetingsController < ApplicationController
   end
 
   def edit
+    load_fraternity
     load_meeting
   end
 
@@ -35,13 +33,7 @@ class MeetingsController < ApplicationController
     build_meeting
 
     if @meeting.save
-      @meeting.organizer_assignation.delete_all
-
-      params[:organizers].each do |organizer|
-        @meeting.organizer_assignation.create(organizer: organizer)
-      end
-
-      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
+      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:updated, Meeting)
     else
       render :new
     end
@@ -50,7 +42,7 @@ class MeetingsController < ApplicationController
   private
 
   def meetings_params
-    params.fetch(:meeting, {}).permit(:date)
+    params.fetch(:meeting, {}).permit(:date, organizer_ids: [])
   end
 
   def build_meeting
@@ -63,14 +55,15 @@ class MeetingsController < ApplicationController
   end
 
   def load_meetings
-    @meetings ||= meetings_scope
+    @meetings ||= meetings_scope.ordered
   end
 
   def meetings_scope
-    fraternity&.meetings&.ordered || Meeting.ordered
+    fraternity&.meetings || Meeting.all
   end
 
   def fraternity
     @fraternity ||= Fraternity.find_by(id: params[:fraternity_id])
   end
+  alias load_fraternity fraternity
 end
