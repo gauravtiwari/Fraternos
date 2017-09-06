@@ -6,30 +6,15 @@
     h4.mb-4.text-center = yield(:title)
     = form_for @meetings_form, as: :meeting, url: fraternity_batch_meetings_path(@fraternity) do |f|
 
-      = f.field_wrapper :starts_on, class: 'form-group' do
-        = f.label :starts_on, class: 'form-control-label'
-        .input-group
-          .input-group-addon
-            = icon('calendar')
-          = f.date_field :starts_on, class: 'form-control'
+      = f.field_wrapper :dates, class: 'form-group' do
+        = f.label :dates, class: 'form-control-label'
+        .input-group.d-flex.justify-content-center data-multi-datepicker=true
+          = f.hidden_field :dates, class: 'form-control', id: 'dates'
 
-      = f.field_wrapper :ends_on, class: 'form-group' do
-        = f.label :ends_on, class: 'form-control-label'
-        .input-group
-          .input-group-addon
-            = icon('calendar')
-          = f.date_field :ends_on, class: 'form-control'
-
-      .row
-        .col-md-6.text-center
-          = f.field_wrapper :frequency, class: 'form-group' do
-            = f.label :frequency, class: 'form-control-label'
-            br
-            = f.select :frequency, frequency_options, class: 'form-control'
-        .col-md-6.text-center
-          = f.field_wrapper :organizers, class: 'form-group' do
-            = f.label :organizers, class: 'form-control-label'
-            br
-            = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control'
+      = f.field_wrapper :organizers, class: 'form-group' do
+        = f.label :organizers, class: 'form-control-label'
+        br
+        .d-flex.justify-content-center
+          = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control w-100'
       .text-center.mt-4
         = f.submit t('actions.generate'), class: 'btn btn-primary px-5'

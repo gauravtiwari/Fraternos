@@ -19,7 +19,7 @@ class BatchMeetingsController < ApplicationController
   private
 
   def meetings_params
-    params.fetch(:meeting, {}).permit(:starts_on, :ends_on, :frequency, :organizers)
+    params.fetch(:meeting, {}).permit(:dates, :organizers)
   end
 
   def fraternity

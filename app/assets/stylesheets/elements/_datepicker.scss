@@ -1,0 +1,15 @@
+.datepicker {
+  font-size: 1.3em;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+
+  td {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+  }
+  td.active {
+    background-color: $red !important;
+  }
+}

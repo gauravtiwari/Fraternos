@@ -7,10 +7,9 @@
       = yield(:title)
 
     = form_for [@fraternity, @meeting] do |f|
-      = f.field_wrapper :date, class: 'form-group input-group' do
-        .input-group-addon
-          = icon('calendar')
-        = f.date_field :date, class: 'form-control', placeholder: t('.date')
+      = f.field_wrapper :date, class: 'form-group d-flex justify-content-center' do
+        div data-datepicker=true
+          = f.hidden_field :date, class: 'form-control', id: 'date'
       = f.field_wrapper :organizer_ids, class: 'form-group btn-group d-block', data: { toggle: 'buttons'} do
         .text-center = t('.organizers')
 

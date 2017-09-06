@@ -1,15 +1,13 @@
 class MeetingForm
   include ActiveModel::Model
 
-  attr_accessor :starts_on, :ends_on, :frequency, :organizers
+  attr_accessor :dates, :organizers
 
-  validates :starts_on, :ends_on, :frequency, :organizers, presence: true
+  validates :dates, :organizers, presence: true
 
   def attributes
     {
-      starts_on: starts_on,
-      ends_on: ends_on,
-      frequency: frequency.to_i,
+      dates: dates,
       organizers: organizers.to_i
     }
   end

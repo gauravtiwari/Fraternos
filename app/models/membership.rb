@@ -9,6 +9,6 @@ class Membership < ApplicationRecord
   delegate :email, :name, to: :user
 
   def to_s
-    nickname || name || ''
+    name || nickname || ''
   end
 end
