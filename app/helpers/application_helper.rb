@@ -72,7 +72,6 @@ module ApplicationHelper
   def class_string(*args)
     classes_hash = args.last.is_a?(Hash) ? args.pop : {}
     classes = classes_hash.map do |css_class, condition|
-
       if css_class.is_a?(Array)
         condition ? css_class.first : css_class.last
       elsif condition
