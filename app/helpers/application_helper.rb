@@ -11,42 +11,8 @@ module ApplicationHelper
     end
   end
 
-  def flash_class_for(flash_type)
-    css_class = {
-      alert: 'warning', error: 'danger', notice: 'info', success: 'success'
-    }.fetch(flash_type.to_sym, flash_type)
-
-    "alert-#{css_class}"
-  end
-
   def plural_name_for(model)
     model.model_name.human(count: 0)
-  end
-
-  def alert_tag(message, options = {}, html_options = {})
-    type = options.fetch(:type, :success)
-    dismissible = options.fetch(:dismissible, true)
-
-    alert_classes = %w[alert fade show]
-    alert_classes.push(flash_class_for(type))
-    alert_classes.push('alert-dismissible') if dismissible
-
-    alert_options =
-      html_options.merge(
-        class: [html_options.fetch(:class, ''), *alert_classes].join(' '),
-        role: 'alert'
-      )
-
-    content = Array(message)
-    content.push(close_button(data: { dismiss: :alert })) if dismissible
-
-    content_tag(:div, safe_join(content), alert_options)
-  end
-
-  def close_button(options)
-    options[:class] = options.fetch(:class, '') + ' close'
-
-    content_tag(:button, raw('&times'), options) # rubocop:disable Rails/OutputSafety
   end
 
   def resource_name

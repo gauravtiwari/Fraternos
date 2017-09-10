@@ -1,2 +1,2 @@
 - flash.each do |type, message|
-  == alert_tag(message, { type: type })
+  == DismissibleAlertBox.new(self, message, type).render
