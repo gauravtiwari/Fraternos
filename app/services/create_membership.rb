@@ -1,4 +1,4 @@
-class CreateMembership < Service::Base
+class CreateMembership < ApplicationService
   attribute :email, Types::String
   attribute :nickname, Types::String
   attribute :fraternity, Types::Class

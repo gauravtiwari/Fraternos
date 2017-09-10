@@ -1,4 +1,4 @@
-class GenerateMeetings < Service::Base
+class GenerateMeetings < ApplicationService
   attribute :fraternity, Types::Class
   attribute :organizers, Types::Int
   attribute :dates, Types::String

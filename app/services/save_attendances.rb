@@ -1,4 +1,4 @@
-class SaveAttendances < Service::Base
+class SaveAttendances < ApplicationService
   attribute :meeting, Types::Class
   attribute :absent_user_ids, Types::Array
 

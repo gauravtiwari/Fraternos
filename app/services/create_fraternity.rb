@@ -1,4 +1,4 @@
-class CreateFraternity < Service::Base
+class CreateFraternity < ApplicationService
   attribute :name, Types::String
   attribute :user, Types::Class
 
