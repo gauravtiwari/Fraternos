@@ -1,13 +1,13 @@
 class GenerateMeetings < ApplicationService
   attribute :fraternity, Types::Class
   attribute :organizers, Types::Int
-  attribute :dates, Types::String
+  attribute :dates, Types::Array.member(Types::Form::Date)
 
   def call
     organizers_pool = fraternity.users.shuffle
 
     ActiveRecord::Base.transaction do
-      dates.split(', ').each do |date|
+      dates.each do |date|
         meeting = fraternity.meetings.create(date: date)
 
         organizers.times do

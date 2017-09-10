@@ -7,7 +7,7 @@ class MeetingForm
 
   def attributes
     {
-      dates: dates,
+      dates: dates.split(', '),
       organizers: organizers.to_i
     }
   end

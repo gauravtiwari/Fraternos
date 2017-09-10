@@ -2,16 +2,12 @@ require 'rails_helper'
 
 describe GenerateMeetings do
   let(:fraternity) { create(:fraternity, :with_members) }
-  let(:frequency) { 1 }
   let(:organizers) { 2 }
-  let(:starts_on) { Date.current }
-  let(:ends_on) { 10.days.from_now.to_date }
-  let(:number_of_days) { (starts_on..ends_on).count }
+  let(:dates) { ['2017-01-01', '2017-01-15', '2017-01-30'] }
 
   let(:result) do
     GenerateMeetings.call(
-      fraternity: fraternity, frequency: frequency, organizers: organizers,
-      starts_on: starts_on, ends_on: ends_on
+      fraternity: fraternity, organizers: organizers, dates: dates
     )
   end
 
@@ -21,16 +17,9 @@ describe GenerateMeetings do
       expect(Meeting.first.organizers.count).to eq(organizers)
     end
 
-    (1..3).to_a.each do |n|
-      context "with frequency of #{n}" do
-        let(:frequency) { n }
-        let(:number_of_meetings) { (number_of_days.to_f / frequency).round }
-
-        it 'creates correct number of meetings' do
-          expect(result.success?).to eq(true)
-          expect(Meeting.count).to eq(number_of_meetings)
-        end
-      end
+    it 'creates correct number of meetings' do
+      expect(result.success?).to eq(true)
+      expect(Meeting.count).to eq(dates.count)
     end
   end
 end
