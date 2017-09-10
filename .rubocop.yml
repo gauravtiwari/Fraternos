@@ -3,14 +3,13 @@ AllCops:
     - Gemfile
   Exclude:
     - config.ru
-    - bin/*
     - db/**/*
-    - node_modules/**/*
     - vendor/ruby/**/*
     - lib/generators/**/*
+    - node_modules/**/*
   TargetRubyVersion: 2.4
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 Metrics/AbcSize:
@@ -29,8 +28,9 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - config/routes.rb
-    - config/environments/*.rb
+    - config/environments/*
     - spec/**/*
+    - lib/tasks/*
 
 Rails:
   Enabled: true
@@ -39,11 +39,45 @@ Rails/Validation:
   Include:
     - app/models/**/*.rb
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
+Layout/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
 
 Style/Documentation:
   Enabled: false
 
 Style/FileName:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/TrivialAccessors:
+  AllowPredicates: true
+  AllowDSLWriters: true
+
+Style/FrozenStringLiteralComment:
   Enabled: false
