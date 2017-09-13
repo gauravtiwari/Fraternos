@@ -27,6 +27,9 @@ en:
       title: Add New Member
       email: Email
       nickname: Nickname
+    membership:
+      debt: Debt
+      payment: Payment
   batch_meetings:
     new:
       title: Generate Meeting

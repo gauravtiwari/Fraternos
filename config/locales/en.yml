@@ -4,6 +4,7 @@ en:
     daily: Daily
     weekly: Weekly
     bi_weekly: Bi weekly
+    copyright: Copyright %{year}
   actions:
     send: Send
     back: Back

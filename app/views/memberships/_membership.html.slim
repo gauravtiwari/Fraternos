@@ -1,31 +1,19 @@
-.d-inline-flex.mb-2
-  - has_debt = membership.user.transactions.sum(:amount) < 0.0
-  li.list-group-item.member-group-item.d-flex.justify-content-center.text-white class=class_string(['bg-danger', 'bg-primary'] => has_debt)
-    .d-flex.py-1.expandable-debt
-      .d-block
-        .d-block.text-center
-          h6 = t('.debt')
-        .d-block.text-center
-          = membership.user.transactions.sum(:amount).to_f.abs
-  li.list-group-item.member-group-item.d-flex.w-100
-    .d-inline-block.w-100
-      .badge.badge-primary = membership.role
+.card.mb-3
+  .card-body
+    .row
+      .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
+        .amount.text-center.text-truncate class=class_string(['text-danger', 'text-success'] => membership.user.transactions.sum(:amount).negative?)
+          = formatted_amount membership.user.transactions.sum(:amount)
 
-      h4.d-block = membership
-    = form_for :payment, url: fraternity_payments_path(@fraternity) do |f|
-      .d-flex.mt-2
-        = f.hidden_field :user_id, value: membership.user.id
-        = f.text_field :amount
-        = f.submit 'Payment', class: 'btn btn-info text-white mx-2'
-    = form_for :debt, url: fraternity_debts_path(@fraternity) do |f|
-      .d-flex.mt-2
-        = f.hidden_field :user_id, value: membership.user.id
-        = f.text_field :amount
-        = f.submit 'Debt', class: 'btn btn-warning text-white mx-2'
+        - if MembershipPolicy.new(current_user, @fraternity).edit?
+          .w-50.mb-3
+            = form_for :transaction, url: fraternity_transactions_path(@fraternity) do |f|
+              = f.hidden_field :user_id, value: membership.user.id
+              .d-flex
+                = f.button icon('plus-square-o'), type: :submit, name: :payment, class: 'btn btn-link'
+                = f.number_field :amount, class: 'form-control', min: -9999, max: 9999, step: 0.5
+                = f.button icon('minus-square-o'), type: :submit, name: :debt, class: 'btn btn-link'
 
-    .text-right
-    - if MembershipPolicy.new(current_user, @fraternity).edit?
-      = link_to icon('pencil'), edit_fraternity_membership_path(membership, @fraternity), class: 'card-link mr-2'
-
-    - if MembershipPolicy.new(current_user, @fraternity).destroy?
-      = link_to_delete fraternity_membership_path(membership, @fraternity), icon('trash'), class: 'card-link text-danger'
+      .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
+        .text-center.h3.card-title = membership
+        small.badge.badge-primary = membership.role
