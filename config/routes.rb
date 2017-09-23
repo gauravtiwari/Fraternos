@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   resources :fraternities do
     resources :memberships
-    resources :transactions, only: %i[index show]
-    resources :payments, only: %i[new create]
-    resources :debts, only: %i[new create]
+    resources :transactions, only: %i[index show create]
     resources :batch_meetings, only: %i[new create]
     resources :meetings do
       resource :attendance_records, only: :create

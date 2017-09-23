@@ -59,4 +59,9 @@ module ApplicationHelper
   def on_fraternity?
     return true if request.path_info.match?(/fraternities/)
   end
+
+  def formatted_amount(amount)
+    return amount if amount.abs < 1_000
+    number_to_human(amount, format: '%n%u', precision: 4, units: { thousand: 'k' })
+  end
 end
