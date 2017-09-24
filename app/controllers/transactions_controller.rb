@@ -22,17 +22,13 @@ class TransactionsController < ApplicationController
 
   private
 
-  def transaction_type
-    params.slice(:debt, :payment).keys.first.classify
-  end
-
   def transaction_params
-    params.fetch(:transaction, {}).permit(:amount, :user_id)
+    params.fetch(:transaction, {}).permit(:amount, :membership_id)
   end
 
   def build_transaction
     @transaction ||= transaction_scope.build
-    @transaction.attributes = transaction_params.merge(type: transaction_type)
+    @transaction.attributes = transaction_params
   end
 
   def load_transaction
@@ -40,7 +36,7 @@ class TransactionsController < ApplicationController
   end
 
   def load_transactions
-    transaction_scope.where(user_id: params[:user_id])
+    transaction_scope
   end
 
   def transaction_scope
