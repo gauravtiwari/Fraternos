@@ -1,6 +1,15 @@
-= form_for(@fraternity) do |f|
-  = f.field_wrapper :name, class: 'form-group' do
-    = f.label :name, class: 'form-control-label'
-    = f.text_field :name, class: 'form-control'
+.form-card.my-5.mx-auto.pb-5.px-4
+  .my-2
+    = link_to fraternities_path do
+      = text_with_icon('chevron-circle-left', t('general.back'))
 
-  = f.submit t('actions.save'), class: 'btn btn-primary'
+  .card.px-4.py-4
+    h4.mb-4.text-center = yield(:title)
+
+    = form_for(@fraternity) do |f|
+      = f.field_wrapper :name, class: 'form-group' do
+        = f.label :name, class: 'form-control-label'
+        = f.text_field :name, class: 'form-control'
+
+      .text-center
+        = f.submit t('actions.save'), class: 'btn btn-primary px-5'

@@ -21,7 +21,7 @@ en:
       title: Meeting
       organizers: Organizers
       attendance: Attendance
-      absent: Absent
+      absent: Absent!
   memberships:
     new:
       title: Add New Member

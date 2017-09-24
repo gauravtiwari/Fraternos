@@ -1,7 +1,8 @@
 .container
   h4.mt-5.mb-3 = t('.my_fraternities')
-  ul.list-group.mb-5.mb-5
-    = render(@fraternities)
+
+  = render(@fraternities)
+
   .d-inline-block.align-middle.w-100.text-center
     = link_to new_fraternity_path do
       = icon('plus', class: 'add-fraternity')

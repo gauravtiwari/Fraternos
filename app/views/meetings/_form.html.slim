@@ -2,6 +2,7 @@
   .my-2
     = link_to fraternity_meetings_path(@meeting.fraternity) do
       = text_with_icon('chevron-circle-left', t('general.back'))
+
   .card.py-5.px-4
     h4.mb-4.text-center
       = yield(:title)
@@ -10,13 +11,14 @@
       = f.field_wrapper :date, class: 'form-group d-flex justify-content-center' do
         div data-datepicker=true
           = f.hidden_field :date, class: 'form-control', id: 'date'
+
       = f.field_wrapper :organizer_ids, class: 'form-group btn-group d-block', data: { toggle: 'buttons'} do
         .text-center = t('.organizers')
 
         = f.collection_check_boxes :organizer_ids, @meeting.fraternity.memberships.all, :user_id, :to_s, {}, multiple: true do |ff|
-            .btn.btn-primary.multi-select.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
-              = ff.label { ff.check_box }
-              = ff.object.to_s
+          .btn.btn-outline-primary.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
+            = ff.label { ff.check_box }
+            = ff.object.to_s
 
-      .mt-5.text-center
+      .text-center
         = f.submit t('actions.save'), class: 'btn btn-primary px-5'

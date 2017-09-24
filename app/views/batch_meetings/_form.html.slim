@@ -2,19 +2,23 @@
   .my-2
     = link_to fraternity_meetings_path(@fraternity) do
       = text_with_icon('chevron-circle-left', t('general.back'))
-  .card.px-4.py-4 
+
+  .card.px-4.py-4
     h4.mb-4.text-center = yield(:title)
+
     = form_for @meetings_form, as: :meeting, url: fraternity_batch_meetings_path(@fraternity) do |f|
 
       = f.field_wrapper :dates, class: 'form-group' do
         = f.label :dates, class: 'form-control-label'
+
         .input-group.d-flex.justify-content-center data-multi-datepicker=true
           = f.hidden_field :dates, class: 'form-control', id: 'dates'
 
       = f.field_wrapper :organizers, class: 'form-group' do
         = f.label :organizers, class: 'form-control-label'
-        br
+
         .d-flex.justify-content-center
-          = f.select :organizers, options_for_select((1..5).step(1)), class: 'form-control w-100'
-      .text-center.mt-4
+          = f.select :organizers, options_for_select((1..5).step(1)), {}, class: 'form-control w-100'
+
+      .text-center
         = f.submit t('actions.generate'), class: 'btn btn-primary px-5'

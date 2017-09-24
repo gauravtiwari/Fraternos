@@ -2,19 +2,31 @@
   .my-2
     = link_to fraternity_meetings_path(@fraternity) do
       = text_with_icon('chevron-circle-left', t('general.back'))
+
   .card.py-5.px-4
-    h1.text-center = t('.title')
-    h5.text-center.text-info = I18n.localize(@meeting.date, format: :date_with_day_in_words)
-    .text-small.mt-4.mb-1 = t('.organizers')
+    h1.text-center
+      = t('.title')
+
+    h5.text-center.text-primary
+      = I18n.localize(@meeting.date, format: :date_with_day_in_words)
+
+    .text-small.mb-1
+      = t('.organizers')
+
     h4 = @meeting.organizers_names
+
     - if @meeting.attendance_records.empty?
       = form_for :attendance_record, url: fraternity_meeting_attendance_records_path(@fraternity, @meeting) do |f|
-        .border.rounded.px-3.pt-2.pb-4.mt-4.elevate
-          .text-small.mt-3.mb-3 = t('.attendance')
+        .pt-2.pb-4
+          .text-small.mb-3
+            = t('.attendance')
+
           .form-group.btn-group.d-block data-toggle='buttons'
             = collection_check_boxes :attendance_record, :absent_user_ids, @fraternity.memberships.all, :user_id, :to_s, {}, multiple: true do |ff|
-                .btn.btn-primary.multi-select.attendace.d-flex.my-1.rounded
-                  = ff.label { ff.check_box }
-                  = ff.object.to_s
-                  .badge.badge-warning.ml-auto.pt-1 #{t('.absent')}!
-          = f.submit t('actions.save'), class: 'btn btn-info px-5 mt-4 d-block ml-auto elevate-low rounded'
+              .btn.btn-light.attendace.d-flex.my-1.rounded
+                = ff.label { ff.check_box }
+                = ff.object.to_s
+                .absence.badge.badge-danger.ml-auto = t('.absent')
+
+        .text-center
+          = f.submit t('actions.save'), class: 'btn btn-primary px-5'

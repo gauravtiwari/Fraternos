@@ -2,6 +2,7 @@
   .my-2
     = link_to fraternity_memberships_path(@fraternity) do
       = text_with_icon('chevron-circle-left', t('general.back'))
+
   .card.py-5.px-4
     h4.mb-4.text-center
       = t('.title')
@@ -20,5 +21,6 @@
           span.input-group-addon
             = icon('user-circle')
           = f.text_field :nickname, class: 'form-control', placeholder: t('.nickname')
+
       .text-center
-        = f.submit t('actions.save'), class: 'btn btn-primary px-5 mt-4'
+        = f.submit t('actions.save'), class: 'btn btn-primary px-5'
