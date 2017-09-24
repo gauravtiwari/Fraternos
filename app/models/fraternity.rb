@@ -2,9 +2,7 @@ class Fraternity < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :meetings, dependent: :destroy
-  has_many :transactions, dependent: :destroy
-  has_many :payments
-  has_many :debts
+  has_many :transactions, through: :memberships, dependent: :destroy
 
   validates :name, presence: true
 
@@ -14,5 +12,9 @@ class Fraternity < ApplicationRecord
 
   def next_meeting
     meetings&.upcoming&.first
+  end
+
+  def balance
+    transactions.sum(:amount)
   end
 end

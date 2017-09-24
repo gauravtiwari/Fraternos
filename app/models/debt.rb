@@ -1,2 +1,0 @@
-class Debt < Transaction
-end

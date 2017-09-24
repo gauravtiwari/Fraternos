@@ -65,12 +65,10 @@ ActiveRecord::Schema.define(version: 20170612202202) do
   create_table "transactions", force: :cascade do |t|
     t.string "type"
     t.decimal "amount", precision: 8, scale: 2, null: false
-    t.bigint "fraternity_id"
-    t.bigint "user_id"
+    t.bigint "membership_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fraternity_id"], name: "index_transactions_on_fraternity_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["membership_id"], name: "index_transactions_on_membership_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,6 +118,5 @@ ActiveRecord::Schema.define(version: 20170612202202) do
   add_foreign_key "memberships", "users"
   add_foreign_key "organizer_assignations", "meetings"
   add_foreign_key "organizer_assignations", "users", column: "organizer_id"
-  add_foreign_key "transactions", "fraternities"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "memberships"
 end
