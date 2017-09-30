@@ -1,5 +1,11 @@
-.font-size-1 { font-size: 1rem; }
-.font-size-2 { font-size: 2rem; }
-.font-size-3 { font-size: 3rem; }
-.font-size-4 { font-size: 4rem; }
-.font-size-5 { font-size: 5rem; }
+$sizes: (
+  1: 1rem,
+  2: 2rem,
+  3: 3rem,
+  4: 4rem,
+  5: 5rem,
+);
+
+@each $num, $size in $sizes {
+  .font-size-#{$num} { font-size: $size; }
+}
