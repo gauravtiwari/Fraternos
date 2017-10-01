@@ -15,3 +15,15 @@
 .member-debt {
   margin-right: 0.5px;
 }
+
+.number-field {
+  border-width: 2px;
+
+  &.positive {
+    border-color: $green;
+  }
+
+  &.negative {
+    border-color: $red;
+  }
+}
