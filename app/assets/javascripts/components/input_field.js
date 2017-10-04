@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.remove('positive')
         this.classList.add('negative')
       } else {
-        this.classList.remove('positive')
-        this.classList.remove('negative')
+        this.classList.remove('positive', 'negative')
       }
     })
   })
