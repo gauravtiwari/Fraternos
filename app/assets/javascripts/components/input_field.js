@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const transactionFields = Array.from(document.querySelectorAll('.number-field'))
+  const transactionFields = Array.from(document.querySelectorAll('[data-transaction-field]'))
 
   transactionFields.forEach((transactionField) => {
     transactionField.addEventListener('keyup', function() {
