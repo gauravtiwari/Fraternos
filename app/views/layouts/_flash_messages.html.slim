@@ -1,2 +1,3 @@
 - flash.each do |type, message|
-  == DismissibleAlertBox.new(self, message, type).render
+  .container.mt-5
+    = DismissibleAlertBox.new(ApplicationController.helpers, message, type).render
