@@ -7,12 +7,11 @@ class Presenter
     raise NotImplementedError
   end
 
-  def method_missing(name, *args, &block)
-    super unless @helpers.methods.include? name
-    @helpers.send(name, *args, &block)
+  def method_missing(method, *args, &block)
+    respond_to_missing?(method) ? @helpers.send(method, *args, &block) : super
   end
 
-  def respond_to_missing?(name, _include_private = false)
-    @helpers.methods.include?(name)
+  def respond_to_missing?(method, _include_private = false)
+    @helpers.methods.include?(method)
   end
 end
