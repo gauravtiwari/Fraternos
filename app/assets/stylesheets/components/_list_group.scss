@@ -9,17 +9,15 @@
 .list-group-item.meeting-item {
   cursor: pointer;
   box-shadow: none;
-  border-left-color: rgba($black,.1);
-  border-right-color: rgba($black,.1);
-  border-top-color: rgba($black,.1);
-  border-bottom-color: rgba($black,.1);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  opacity: 0.7;
 
   &:hover {
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
-
+    opacity: 1;
     & .calendar-card {
       box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
     }
@@ -27,10 +25,7 @@
 
   &:active {
     box-shadow: none;
-    border-left-color: rgba($black,.1);
-    border-right-color: rgba($black,.1);
-    border-top-color: rgba($black,.1);
-    border-bottom-color: rgba($black,.1);
+    opacity: 0.8;
 
     & .calendar-card {
       box-shadow: none;

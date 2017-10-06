@@ -34,7 +34,7 @@ class FraternitiesController < ApplicationController
     build_fraternity
 
     if @fraternity.save
-      redirect_to root_url
+      redirect_to fraternity_memberships_path(@fraternity)
     else
       render :edit
     end
@@ -60,6 +60,6 @@ class FraternitiesController < ApplicationController
   end
 
   def fraternity_params
-    params.fetch(:fraternity, {}).permit(:name)
+    params.fetch(:fraternity, {}).permit(:name, :absent_penalty)
   end
 end

@@ -38,3 +38,8 @@ ul.nav-tabs :first-child {
 a:hover {
   text-decoration: none;
 }
+
+/* Removes the caret icon */
+.dropdown-toggle:after {
+  display: none;
+}

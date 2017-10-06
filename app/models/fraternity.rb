@@ -5,6 +5,7 @@ class Fraternity < ApplicationRecord
   has_many :transactions, through: :memberships, dependent: :destroy
 
   validates :name, presence: true
+  validates :absent_penalty, numericality: { greater_than_or_equal_to: -9999, less_than_or_equal_to: 0 }
 
   def owner
     memberships.find_by(role: :owner)

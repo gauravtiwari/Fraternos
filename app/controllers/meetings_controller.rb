@@ -52,7 +52,7 @@ class MeetingsController < ApplicationController
   end
 
   def load_meetings
-    @meetings ||= meetings_scope.ordered
+    @meetings ||= meetings_scope.upcoming
   end
 
   def meetings_scope

@@ -4,8 +4,10 @@
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
         .font-size-4 class=class_string(['text-danger', 'text-success'] => fraternity.balance.negative?)
           = formatted_amount fraternity.balance
+
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
         .text-center.h1.card-title = link_to fraternity.name, fraternity_memberships_path(fraternity)
+
   .card-footer
     = link_to fraternity_memberships_path(fraternity) do
       => fraternity.memberships.count

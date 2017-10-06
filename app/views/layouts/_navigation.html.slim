@@ -2,6 +2,12 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
   = link_to t('general.title'), root_url, class: 'navbar-brand'
 
   ul.navbar-nav.ml-auto.justify-content-end
-    li.nav-item
-      = link_to root_url, class: 'nav-link' do
+    li.nav-item.dropdown.show
+      = link_to '#', class: 'nav-link dropdown-toggle', id: 'settings-menu', data: { toggle: 'dropdown' } do
         h2.my-auto = icon('cog')
+
+        .dropdown-menu.dropdown-menu-right aria-labelledby='settings-menu'
+          - if (@fraternity && !@fraternity.new_record?)
+            = link_to 'Fraternity Settings', edit_fraternity_path(@fraternity), class: 'dropdown-item'
+          = link_to 'User Settings', edit_user_registration_path(current_user), class: 'dropdown-item'
+

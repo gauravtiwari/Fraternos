@@ -6,7 +6,7 @@ class Meeting < ApplicationRecord
   has_many :attendance_records, dependent: :destroy
 
   scope :upcoming, -> { where('date >= ?', Time.zone.today).order(:date) }
-  scope :ordered, -> { order(date: :desc) }
+  scope :ordered, -> { order(date: :asc) }
 
   validates :date, presence: true
 

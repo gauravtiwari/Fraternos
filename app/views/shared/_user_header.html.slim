@@ -3,6 +3,7 @@
     .d-flex.py-4
       .d-flex.align-items-top
         h1 = @fraternity&.name
+
       .w-100.d-flex.justify-content-end
         div
           h5.text-center = t('.upcoming_events')
@@ -13,5 +14,6 @@
                 .card.calendar-card
                   .card-header.bg-primary.text-white
                     .text-center.font-weight-bold.mx-auto = I18n.localize(@upcoming.date, format: :month_abbreviated)
+
                   .card-body
                     .text-center = @upcoming.date.strftime('%d')

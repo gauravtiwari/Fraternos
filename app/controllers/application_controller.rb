@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_fraternity, if: :user_signed_in?
 
+  helper_method :current_fraternity, :current_fraternity?
+
   def load_fraternity
     @fraternity = find_fraternity || NullFraternity.new
   end
@@ -16,8 +18,6 @@ class ApplicationController < ActionController::Base
   def current_fraternity
     @fraternity
   end
-
-  helper_method :current_fraternity
 
   def current_fraternity?
     @fraternity.present?

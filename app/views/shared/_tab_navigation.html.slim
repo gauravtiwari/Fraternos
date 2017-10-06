@@ -2,5 +2,6 @@
   ul.nav.nav-tabs
     li.nav-item.text-center
       = link_to 'Members', fraternity_memberships_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'memberships')
+
     li.nav-item.text-center
       = link_to 'Events', fraternity_meetings_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'meetings')
