@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def fraternity
-    record.is_a?(Fraternity) ? record : record&.fraternity
+    record.is_a?(Fraternity) || record.is_a?(NullFraternity) ? record : record&.fraternity
   end
 
   def fraternity_admin?

@@ -5,17 +5,15 @@ class FraternitiesController < ApplicationController
   end
 
   def show
-    load_fraternity
     authorize @fraternity
   end
 
   def new
-    build_fraternity
+    @fraternity = fraternity_scope.build
     authorize @fraternity
   end
 
   def edit
-    load_fraternity
     authorize @fraternity
     build_fraternity
   end
@@ -32,7 +30,6 @@ class FraternitiesController < ApplicationController
   end
 
   def update
-    load_fraternity
     authorize @fraternity
     build_fraternity
 
@@ -44,7 +41,6 @@ class FraternitiesController < ApplicationController
   end
 
   def destroy
-    load_fraternity
     authorize @fraternity
 
     @fraternity.destroy
@@ -53,10 +49,6 @@ class FraternitiesController < ApplicationController
   end
 
   private
-
-  def load_fraternity
-    @fraternity ||= fraternity_scope.find(params[:id])
-  end
 
   def load_fraternities
     @fraternities ||= fraternity_scope
@@ -69,9 +61,5 @@ class FraternitiesController < ApplicationController
 
   def fraternity_params
     params.fetch(:fraternity, {}).permit(:name)
-  end
-
-  def fraternity_scope
-    current_user.fraternities
   end
 end

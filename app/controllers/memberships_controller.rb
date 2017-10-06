@@ -1,24 +1,22 @@
 class MembershipsController < ApplicationController
   def index
-    authorize fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, policy_class: MembershipPolicy
     load_memberships
   end
 
   def new
-    load_fraternity
-    authorize fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, policy_class: MembershipPolicy
     @membership_form = MembershipForm.new
   end
 
   def create
-    load_fraternity
-    authorize fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, policy_class: MembershipPolicy
     @membership_form = MembershipForm.new(membership_params)
 
     if @membership_form.valid?
-      CreateMembership.call(fraternity: fraternity, **@membership_form.attributes)
+      CreateMembership.call(fraternity: @fraternity, **@membership_form.attributes)
 
-      redirect_to fraternity_memberships_path(fraternity), notice: notification_for(:invited, User)
+      redirect_to fraternity_memberships_path(@fraternity), notice: notification_for(:invited, User)
     else
       render :new
     end
@@ -35,7 +33,7 @@ class MembershipsController < ApplicationController
     build_membership
 
     if @membership.save
-      redirect_to fraternity_memberships_path(@membership.fraternity), notice: notification_for(:updated, Membership)
+      redirect_to fraternity_memberships_path(@fraternity), notice: notification_for(:updated, Membership)
     else
       render :edit
     end
@@ -75,11 +73,6 @@ class MembershipsController < ApplicationController
   end
 
   def membership_scope
-    fraternity&.memberships || Membership.all
+    @fraternity.memberships || Membership.all
   end
-
-  def fraternity
-    @fraternity ||= Fraternity.find_by(id: params[:fraternity_id])
-  end
-  alias load_fraternity fraternity
 end
