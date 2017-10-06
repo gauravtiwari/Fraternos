@@ -5,11 +5,9 @@ class MeetingsController < ApplicationController
 
   def show
     load_meeting
-    @fraternity = @meeting.fraternity
   end
 
   def new
-    load_fraternity
     build_meeting
   end
 
@@ -17,14 +15,13 @@ class MeetingsController < ApplicationController
     build_meeting
 
     if @meeting.save
-      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
+      redirect_to fraternity_meetings_path(@fraternity), notice: notification_for(:created, Meeting)
     else
       render :new
     end
   end
 
   def edit
-    load_fraternity
     load_meeting
   end
 
@@ -33,7 +30,7 @@ class MeetingsController < ApplicationController
     build_meeting
 
     if @meeting.save
-      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:updated, Meeting)
+      redirect_to fraternity_meetings_path(@fraternity), notice: notification_for(:updated, Meeting)
     else
       render :new
     end
@@ -59,11 +56,6 @@ class MeetingsController < ApplicationController
   end
 
   def meetings_scope
-    fraternity&.meetings || Meeting.all
+    @fraternity.meetings || Meeting.all
   end
-
-  def fraternity
-    @fraternity ||= Fraternity.find_by(id: params[:fraternity_id])
-  end
-  alias load_fraternity fraternity
 end

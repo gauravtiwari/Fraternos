@@ -1,6 +1,5 @@
 class BatchMeetingsController < ApplicationController
   def new
-    fraternity
     @meetings_form = MeetingForm.new
   end
 
@@ -8,9 +7,9 @@ class BatchMeetingsController < ApplicationController
     meeting_form = MeetingForm.new(meetings_params)
 
     if meeting_form.valid?
-      GenerateMeetings.call(fraternity: fraternity, **meeting_form.attributes)
+      GenerateMeetings.call(fraternity: @fraternity, **meeting_form.attributes)
 
-      redirect_to fraternity_meetings_path(fraternity), notice: notification_for(:created, Meeting)
+      redirect_to fraternity_meetings_path(@fraternity), notice: notification_for(:created, Meeting)
     else
       render :new
     end
@@ -20,9 +19,5 @@ class BatchMeetingsController < ApplicationController
 
   def meetings_params
     params.fetch(:meeting, {}).permit(:dates, :organizers)
-  end
-
-  def fraternity
-    @fraternity ||= Fraternity.find_by(id: params[:fraternity_id])
   end
 end
