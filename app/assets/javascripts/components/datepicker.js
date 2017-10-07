@@ -1,11 +1,16 @@
-$(document).ready(function() {
-  $('[data-multi-datepicker]').datepicker({ multidate: true })
-  $('[data-multi-datepicker]').on('changeDate', function(event) {
-    $('#dates').val(event.dates.join(', '))
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr('[data-datepicker]', {
+    inline: true,
+    onChange(selectedDates) {
+      this.element.children.date.value = selectedDates[0]
+    }
   })
 
-  $('[data-datepicker]').datepicker()
-  $('[data-datepicker]').on('changeDate', function(event) {
-    $('#date').val(event.date)
+  flatpickr('[data-multi-datepicker]', {
+    inline: true,
+    mode: 'multiple',
+    onChange(selectedDates) {
+      this.element.children.dates.value = selectedDates.join(', ')
+    }
   })
 })
