@@ -1,18 +1,22 @@
 class MeetingsController < ApplicationController
   def index
+    authorize @fraternity, :show?
     load_meetings
   end
 
   def show
     load_meeting
+    authorize @meeting
   end
 
   def new
     build_meeting
+    authorize @meeting
   end
 
   def create
     build_meeting
+    authorize @meeting
 
     if @meeting.save
       redirect_to fraternity_meetings_path(@fraternity), notice: notification_for(:created, Meeting)
@@ -23,10 +27,12 @@ class MeetingsController < ApplicationController
 
   def edit
     load_meeting
+    authorize @meeting
   end
 
   def update
     load_meeting
+    authorize @meeting
     build_meeting
 
     if @meeting.save

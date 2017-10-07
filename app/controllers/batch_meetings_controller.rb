@@ -1,9 +1,11 @@
 class BatchMeetingsController < ApplicationController
   def new
+    authorize @fraternity, :update?
     @meetings_form = MeetingForm.new
   end
 
   def create
+    authorize @fraternity, :update?
     meeting_form = MeetingForm.new(meetings_params)
 
     if meeting_form.valid?

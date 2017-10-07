@@ -1,16 +1,16 @@
 class MembershipsController < ApplicationController
   def index
-    authorize @fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, :show?
     load_memberships
   end
 
   def new
-    authorize @fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, :update?
     @membership_form = MembershipForm.new
   end
 
   def create
-    authorize @fraternity, policy_class: MembershipPolicy
+    authorize @fraternity, :update?
     @membership_form = MembershipForm.new(membership_params)
 
     if @membership_form.valid?
