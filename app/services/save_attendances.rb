@@ -1,6 +1,6 @@
 class SaveAttendances < ApplicationService
-  attribute :meeting, Types::Class
-  attribute :absent_user_ids, Types::Array.member(Types::Form::Int)
+  attribute :meeting, Types::Instance(Meeting)
+  attribute :absent_user_ids, Types::Array(Types::Form::Int)
 
   def call
     ActiveRecord::Base.transaction do

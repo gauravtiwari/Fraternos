@@ -1,7 +1,7 @@
 class CreateMembership < ApplicationService
   attribute :email, Types::String
   attribute :nickname, Types::String
-  attribute :fraternity, Types::Class
+  attribute :fraternity, Types::Instance(Fraternity)
 
   def call
     member = User.invite!(email: email, name: nickname)
