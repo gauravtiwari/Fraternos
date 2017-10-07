@@ -12,9 +12,10 @@ html
     = render 'layouts/navigation'
 
     - if current_fraternity?
-      = render 'shared/user_header'
+      = render 'shared/fraternity_header'
+      = yield(:tab_navigation)
 
-    .container-fluid
+    .container
       = render 'layouts/flash_messages'
 
       = yield

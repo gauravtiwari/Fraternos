@@ -9,7 +9,9 @@ en:
     new:
       title: Create a Fraternity
     index:
-      my_fraternities: My Fraternities
+      title: My Fraternities
+    edit:
+      title: Edit Fraternity
   meetings:
     new:
       title: New Meeting
@@ -54,8 +56,11 @@ en:
       edit:
         title: Edit account
         waiting_confirmation_for: "Currently waiting confirmation for: %{email}"
-        cancel_account: Cancel my account
-        unhappy: Unhappy?
+        delete_account: Delete account
+        delete_your_account: Delete your account
+        transfer_or_delete_fraternities: |
+          Your account is currently an owner of fraternities.
+          You must transfer ownership or delete these fraternities before you can delete your user.
     sessions:
       new:
         title: Log in

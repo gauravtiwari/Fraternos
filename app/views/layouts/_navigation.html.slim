@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.mb-5
   = link_to t('general.title'), root_url, class: 'navbar-brand'
 
   ul.navbar-nav.ml-auto.justify-content-end
@@ -6,8 +6,18 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
       = link_to '#', class: 'nav-link dropdown-toggle', id: 'settings-menu', data: { toggle: 'dropdown' } do
         h2.my-auto = icon('cog')
 
-        .dropdown-menu.dropdown-menu-right aria-labelledby='settings-menu'
-          - if (@fraternity && !@fraternity.new_record?)
-            = link_to 'Fraternity Settings', edit_fraternity_path(@fraternity), class: 'dropdown-item'
-          = link_to 'User Settings', edit_user_registration_path(current_user), class: 'dropdown-item'
+      .dropdown-menu.dropdown-menu-right aria-labelledby='settings-menu'
+        .dropdown-item.disabled.text-dark
+          .font-weight-bold = current_user
+
+        .dropdown-divider
+
+        - if policy(current_fraternity).edit?
+          = link_to t('.fraternity_settings'), edit_fraternity_path(@fraternity), class: 'dropdown-item'
+
+        = link_to t('.user_settings'), edit_user_registration_path, class: 'dropdown-item'
+
+        .dropdown-divider
+
+        = link_to t('.sign_out'), destroy_user_session_path, class: 'dropdown-item', method: :delete
 

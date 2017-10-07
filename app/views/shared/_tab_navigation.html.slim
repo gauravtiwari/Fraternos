@@ -1,7 +1,8 @@
-.full-width
-  ul.nav.nav-tabs
-    li.nav-item.text-center
-      = link_to 'Members', fraternity_memberships_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'memberships')
+ul.nav.nav-pills.nav-fill.my-4.font-size-2
+  li.nav-item.border.border-primary.rounded.mx-4
+    = link_to fraternity_memberships_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'memberships') do
+      = t('.members')
 
-    li.nav-item.text-center
-      = link_to 'Events', fraternity_meetings_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'meetings')
+  li.nav-item.border.border-primary.rounded.mx-4
+    = link_to fraternity_meetings_path(@fraternity), class: class_string('nav-link py-4', active: controller_name == 'meetings') do
+      = t('.events')
