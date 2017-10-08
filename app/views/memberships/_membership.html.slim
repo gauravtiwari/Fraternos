@@ -1,11 +1,11 @@
-.card.mb-3
+.card.mb-3.elevate
   .card-body
     .row
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
         .font-size-4.text-center.text-truncate class=class_string(['text-danger', 'text-success'] => membership.balance.negative?)
           = formatted_amount membership.balance
 
-        - if MembershipPolicy.new(current_user, @fraternity).edit?
+        - if policy(@fraternity).edit?
           .w-50.mb-3
             = form_for :transaction, url: fraternity_transactions_path(@fraternity) do |f|
               = f.hidden_field :membership_id, value: membership.id

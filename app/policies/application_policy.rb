@@ -34,14 +34,6 @@ class ApplicationPolicy
     false
   end
 
-  def fraternity
-    record.is_a?(Fraternity) || record.is_a?(NullFraternity) ? record : record&.fraternity
-  end
-
-  def fraternity_admin?
-    user.memberships.exists?(role: %i[admin owner], fraternity: fraternity)
-  end
-
   def scope
     Pundit.policy_scope!(user, record.class)
   end

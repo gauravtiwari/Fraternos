@@ -1,13 +1,11 @@
 class TransactionPolicy < ApplicationPolicy
-  def index?
-    true
-  end
+  alias transaction record
 
   def show?
-    true
+    user.administrates_fraternity?(transaction.fraternity_id)
   end
 
   def create?
-    true
+    user.administrates_fraternity?(transaction.fraternity_id)
   end
 end

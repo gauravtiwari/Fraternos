@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   def index
-    authorize Transaction
+    authorize @fraternity, :show?
     load_transactions
   end
 
