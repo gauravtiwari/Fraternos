@@ -8,10 +8,8 @@
 
     = form_for @meetings_form, as: :meeting, url: fraternity_batch_meetings_path(@fraternity) do |f|
 
-      = f.field_wrapper :dates, class: 'form-group' do
-        = f.label :dates, class: 'form-control-label'
-
-        .input-group.d-flex.justify-content-center data-multi-datepicker=true
+      = f.field_wrapper :dates, class: 'form-group d-flex justify-content-center' do
+        div data-multi-datepicker=true
           = f.hidden_field :dates, class: 'form-control', id: 'dates'
 
       = f.field_wrapper :organizers, class: 'form-group' do

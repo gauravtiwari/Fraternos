@@ -14,5 +14,5 @@
 //= require jquery/dist/jquery
 //= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
-//= require bootstrap-datepicker/dist/js/bootstrap-datepicker
+//= require flatpickr/dist/flatpickr
 //= require_tree .
