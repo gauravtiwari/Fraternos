@@ -1,7 +1,7 @@
 class GenerateMeetings < ApplicationService
-  attribute :fraternity, Types::Class
+  attribute :fraternity, Types::Instance(Fraternity)
   attribute :organizers, Types::Int
-  attribute :dates, Types::Array.member(Types::Form::Date)
+  attribute :dates, Types::Array(Types::Form::Date)
 
   def call
     organizers_pool = fraternity.users.shuffle

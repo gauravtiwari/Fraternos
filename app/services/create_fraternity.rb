@@ -1,6 +1,6 @@
 class CreateFraternity < ApplicationService
   attribute :name, Types::String
-  attribute :user, Types::Class
+  attribute :user, Types::Instance(User)
 
   def call
     fraternity = Fraternity.create(name: name)
