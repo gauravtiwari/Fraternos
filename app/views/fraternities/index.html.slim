@@ -3,8 +3,8 @@
 h4.mb-3
   = t('.title')
 
-= render(@fraternities)
+.text-center.mb-4
+  = link_to new_fraternity_path, class: 'btn btn-primary' do
+    = t('actions.new', subject: Fraternity.model_name.human)
 
-.d-inline-block.align-middle.w-100.text-center
-  = link_to new_fraternity_path do
-    = icon('plus', class: 'add-fraternity')
+= render(@fraternities)

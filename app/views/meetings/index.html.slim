@@ -1,12 +1,12 @@
 = content_for(:tab_navigation) do
   = render 'shared/tab_navigation'
 
-.mt-5.mb-3.text-center
-  = link_to t('.new_meeting'), new_fraternity_meeting_path(@fraternity), class: 'px-5 btn btn-primary'
-
-.mb-5.text-center
-  = link_to t('.random_generator'), new_fraternity_batch_meeting_path, class: 'px-5 btn btn-primary'
+.row.mb-4
+  .col-6.text-right
+    = link_to t('.new_meeting'), new_fraternity_meeting_path(@fraternity), class: 'px-5 btn btn-primary'
+  .col-6.text-left
+    = link_to t('.random_generator'), new_fraternity_batch_meeting_path, class: 'px-5 btn btn-primary'
 
 .container
   ul.list-group
-    = render(@meetings) || t('.no_meetings')
+    = render(@meetings) || render('shared/empty', subject: Meeting)

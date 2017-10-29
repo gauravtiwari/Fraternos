@@ -4,11 +4,14 @@ en:
     daily: Daily
     weekly: Weekly
     bi_weekly: Bi weekly
-    copyright: Copyright %{year}
+    copyright: Copyright © %{year}
+    made_by_html: |
+      Made with 💪&nbsp by <a href='https://github.com/mustardseed'>Mustard Seed</a>.
   actions:
     send: Send
     back: Back
     save: Save
+    new: New %{subject}
     generate: Generate
   messages:
     delete_prompt: Are you sure?

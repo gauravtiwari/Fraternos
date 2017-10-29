@@ -3,13 +3,25 @@ html
   head
     title = page_title
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'visitor', media: 'all'
     = javascript_include_tag 'application'
 
   body class=[controller_name, action_name]
-    .container-fluid
-      = render 'layouts/flash_messages'
-      = yield
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          header.masthead.clearfix
+            .inner
+              h3.masthead-brand
+                = page_title
+              nav.nav.nav-masthead
+                = active_link_to t('.home'), root_path, class: 'nav-link', active: :exact
+                = active_link_to t('.sign_in'), new_user_session_path, class: 'nav-link'
+                = active_link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'
+          main.inner.cover role='main'
+            = yield
 
-    .footer
-      = render 'shared/footer'
+          footer.mastfoot
+            .inner
+              p
+                = t('general.made_by_html')

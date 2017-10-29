@@ -9,16 +9,18 @@ html
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
   body class=[controller_name, action_name]
-    = render 'layouts/navigation'
+    header
+      = render 'layouts/navigation'
 
     - if current_fraternity?
       = render 'shared/fraternity_header'
       = yield(:tab_navigation)
 
-    .container
+    main.container.mb-5.pb-5
       = render 'layouts/flash_messages'
 
       = yield
 
-      .footer
+    footer.footer
+      .container
         = render 'shared/footer'

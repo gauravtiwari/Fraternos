@@ -9,7 +9,7 @@
 
       = f.field_wrapper :absent_penalty, class: 'form-group' do
         = f.label :absent_penalty, class: 'form-control-label'
-        = f.number_field :absent_penalty, class: 'form-control', min: -9999, max: 0, step: 1
+        = f.number_field :absent_penalty, class: 'form-control', min: -999999, max: 0, step: 1
 
       .text-center
         = f.submit t('actions.save'), class: 'btn btn-primary px-5'

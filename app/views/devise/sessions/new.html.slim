@@ -1,20 +1,30 @@
 h2 = t('.title')
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.field_wrapper :email, class: 'form-group' do
-    = f.label :email, class: 'form-control-label'
-    = f.email_field :email, class: 'form-control'
+.row
+  .col-sm-8.mx-auto
+    .card.text-dark.text-left
+      .card-body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = f.field_wrapper :email, class: 'form-group' do
+            = f.label :email, class: 'form-control-label'
+            .input-group
+              .input-group-addon = icon('at')
+              = f.email_field :email, class: 'form-control'
 
-  = f.field_wrapper :password, class: 'form-group' do
-    = f.label :password, class: 'form-control-label'
-    = f.password_field :password, class: 'form-control'
+          = f.field_wrapper :password, class: 'form-group' do
+            .float-right
+             = link_to t('devise.shared.links.password_reset'), new_password_path(resource_name)
 
-  - if devise_mapping.rememberable?
-    .form-check
-      = f.label :remember_me, class: 'form-check-label' do
-        = f.check_box :remember_me, class: 'form-check-input'
-        = User.human_attribute_name(:remember_me)
+            = f.label :password, class: 'form-control-label'
+            .input-group
+              .input-group-addon = icon('lock')
+              = f.password_field :password, class: 'form-control'
 
-  = f.submit t('.submit'), class: 'btn btn-success'
+          - if devise_mapping.rememberable?
+            .form-check
+              = f.label :remember_me, class: 'form-check-label' do
+                = f.check_box :remember_me, class: 'form-check-input'
+                = User.human_attribute_name(:remember_me)
 
-= render 'devise/shared/links'
+          .text-center
+            = f.submit t('.submit'), class: 'btn btn-success btn-block'

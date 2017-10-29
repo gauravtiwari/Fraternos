@@ -1,5 +1,21 @@
 h2 = t('.title')
 
-= render 'devise/shared/sign_up_form'
+.row
+  .col-sm-8.mx-auto
+    .card.text-dark.text-left
+      .card-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.field_wrapper :name, class: 'form-group' do
+            = f.label :name, class: 'form-control-label'
+            = f.text_field :name, class: 'form-control', placeholder: t('placeholders.name')
 
-= render 'devise/shared/links'
+          = f.field_wrapper :email, class: 'form-group' do
+            = f.label :email, class: 'form-control-label'
+            = f.email_field :email, class: 'form-control', placeholder: t('placeholders.email')
+
+          = f.field_wrapper :password, class: 'form-group' do
+            = f.label :password, class: 'form-control-label'
+            = f.password_field :password, class: 'form-control', placeholder: t('placeholders.password')
+
+          .text-center
+            = f.submit t('.submit'), class: 'btn btn-success btn-block'

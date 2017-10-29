@@ -10,7 +10,7 @@
             = form_for :transaction, url: fraternity_transactions_path(@fraternity) do |f|
               = f.hidden_field :membership_id, value: membership.id
               .d-flex
-                = f.number_field :amount, class: 'form-control number-field mr-2', min: -9999, max: 9999, step: 0.5, data: { transaction_field: '' }
+                = f.number_field :amount, class: 'form-control number-field mr-2', min: -999999, max: 999999, step: 0.5, data: { transaction_field: '' }
                 = f.submit t('actions.save'), class: 'btn btn-outline-primary'
 
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
