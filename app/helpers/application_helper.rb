@@ -52,10 +52,6 @@ module ApplicationHelper
     [[t('general.daily'), 1], [t('general.weekly'), 7], [t('general.bi_weekly'), 14]]
   end
 
-  def text_with_icon(icon_name, text)
-    safe_join([icon(icon_name), text], ' ')
-  end
-
   def on_fraternity?
     return true if request.path_info.match?(/fraternities/)
   end

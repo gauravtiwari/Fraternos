@@ -1,12 +1,13 @@
 h2 = t('.title')
 
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
+.row
+  .col-sm-8.mx-auto
+    .card.text-dark.text-left
+      .card-body
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          = f.field_wrapper :email, class: 'form-group' do
+            = f.label :email, class: 'form-control-label'
+            = f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
 
-  = f.field_wrapper :email, class: 'form-group' do
-    = f.label :email, class: 'form-control-label'
-    = f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
-
-  = f.submit t('actions.send'), class: 'btn btn-success'
-
-= render 'devise/shared/links'
+          .text-center
+            = f.submit t('actions.send'), class: 'btn btn-success btn-block'

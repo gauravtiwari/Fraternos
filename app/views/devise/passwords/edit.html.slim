@@ -1,17 +1,19 @@
 h2 = t('.title')
 
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  = f.hidden_field :reset_password_token
+.row
+  .col-sm-8.mx-auto
+    .card.text-dark.text-left
+      .card-body
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          = f.hidden_field :reset_password_token
 
-  = f.field_wrapper :password, class: 'form-group' do
-    = f.label :password, t('.new_password'), class: 'form-control-label'
-    = f.password_field :password, class: 'form-control'
+          = f.field_wrapper :password, class: 'form-group' do
+            = f.label :password, t('.new_password'), class: 'form-control-label'
+            = f.password_field :password, class: 'form-control'
 
-  = f.field_wrapper :password_confirmation, class: 'form-group' do
-    = f.label :password_confirmation, class: 'form-control-label'
-    = f.password_field :password_confirmation, class: 'form-control'
+          = f.field_wrapper :password_confirmation, class: 'form-group' do
+            = f.label :password_confirmation, class: 'form-control-label'
+            = f.password_field :password_confirmation, class: 'form-control'
 
-  = f.submit t('.submit'), class: 'btn btn-success'
-
-= render 'devise/shared/links'
+          .text-center
+            = f.submit t('.submit'), class: 'btn btn-success btn-block'

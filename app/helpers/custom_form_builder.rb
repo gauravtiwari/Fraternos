@@ -30,6 +30,6 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def html_errors(errors)
-    errors.map { |error| content_tag(:div, error, class: 'form-control-feedback') }
+    errors.map { |error| content_tag(:div, error, class: 'form-control-feedback text-danger') }
   end
 end

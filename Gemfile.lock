@@ -24,6 +24,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
     activejob (5.1.0)
       activesupport (= 5.1.0)
       globalid (>= 0.3.6)
@@ -282,6 +285,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   coffee-rails (~> 4.2)
   database_cleaner
   devise (~> 4.3)
@@ -314,4 +318,4 @@ DEPENDENCIES
   webpacker
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

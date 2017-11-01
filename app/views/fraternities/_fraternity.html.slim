@@ -12,3 +12,7 @@
     = link_to fraternity_memberships_path(fraternity) do
       => fraternity.memberships.count
       = plural_name_for(User)
+
+    = link_to fraternity_meetings_path(fraternity), class: 'float-right' do
+      => fraternity.meetings.count
+      = plural_name_for(Meeting)

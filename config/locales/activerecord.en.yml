@@ -1,4 +1,4 @@
-es:
+en:
   activerecord:
     attributes:
       user:
@@ -13,3 +13,6 @@ es:
       user:
         one: User
         other: Users
+      meeting:
+        one: Meeting
+        other: Meetings

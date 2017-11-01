@@ -5,11 +5,22 @@ en:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+  placeholders:
+    email: you@example.com
+    password: Create a password
+    name: Your name
+  layouts:
+    visitor:
+      home: Home
+      sign_in: Sign in
+      sign_up: Sing up
   fraternities:
     new:
       title: Create a Fraternity
     index:
-      my_fraternities: My Fraternities
+      title: My Fraternities
+    edit:
+      title: Edit Fraternity
   meetings:
     new:
       title: New Meeting
@@ -35,31 +46,49 @@ en:
       title: Generate Meeting
   pages:
     home:
-      title: Fraternos
+      title: Welcome to Fraternos!
+      description_html: |
+        <p>
+          The easiest and dopest way to manage your Fraternity
+        </p>
+        <p>
+          <strong>Hassle free!</strong>
+        <p>
+      sign_up: Create your account
+  shared:
+    empty:
+      title: No %{subject} created yet!
+      create: Create a new one
   devise:
     confirmations:
       new:
         title: Resend confirmation instructions
     passwords:
       new:
-        title: Forgot your password?
-        submit: Send me reset password instructions
+        title: Reset your password
+        email_label: Enter your email address and we will send you a link to reset your password.
+        email_placeholder: Enter your email address
+        submit: Send password reset email
       edit:
         title: Change your password
         new_password: New password
         submit: Change my password
     registrations:
       new:
-        title: Sign up
+        title: Join Fraternos
+        submit: Create an account
       edit:
         title: Edit account
         waiting_confirmation_for: "Currently waiting confirmation for: %{email}"
-        cancel_account: Cancel my account
-        unhappy: Unhappy?
+        delete_account: Delete account
+        delete_your_account: Delete your account
+        transfer_or_delete_fraternities: |
+          Your account is currently an owner of fraternities.
+          You must transfer ownership or delete these fraternities before you can delete your user.
     sessions:
       new:
-        title: Log in
-        submit: Log in
+        title: Sign in to Fraternos
+        submit: Sign in
     unlocks:
       new:
         title: Resend unlock instructions
@@ -114,5 +143,3 @@ en:
         resend_confirmation_instructions: Didn't receive confirmation instructions?
         resend_unlock_instructions: Didn't receive unlock instructions?
         sing_in_with: Sign in with %{provider}
-      sign_up_form:
-        submit: Sign up

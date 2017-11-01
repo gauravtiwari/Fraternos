@@ -1,8 +1,10 @@
-.container
-  h4.mt-5.mb-3 = t('.my_fraternities')
+= content_for(:title) { t('.title') }
 
-  = render(@fraternities)
+h4.mb-3
+  = t('.title')
 
-  .d-inline-block.align-middle.w-100.text-center
-    = link_to new_fraternity_path do
-      = icon('plus', class: 'add-fraternity')
+.text-center.mb-4
+  = link_to new_fraternity_path, class: 'btn btn-primary' do
+    = t('actions.new', subject: Fraternity.model_name.human)
+
+= render(@fraternities)
