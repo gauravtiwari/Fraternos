@@ -20,6 +20,11 @@ en:
   notifications:
     destroyed: '%{subject} was removed.'
     not_destroyed: '%{subject} could not removed.'
+    created: '%{subject} was created.'
+    not_created: '%{subject} was not created.'
+    updated: '%{subject} was updated.'
+    invited: '%{subject} invited.'
+    not_found: '%{subject} not found.'
   shared:
     user_header:
       welcome: 'Welcome, %{subject}'

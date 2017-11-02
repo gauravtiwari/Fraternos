@@ -1,8 +1,4 @@
 .card.elevate
   .card-body
-    h4.card-title
+    h4.card-title.text-center
       = t('.title', subject: subject.model_name.human(count: 0))
-
-    .text-center
-      = link_to polymorphic_path([current_fraternity, subject], action: :new), class: 'btn btn-primary' do
-        = t('.create', subject: subject.model_name.human)
