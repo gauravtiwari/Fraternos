@@ -13,7 +13,7 @@ en:
     visitor:
       home: Home
       sign_in: Sign in
-      sign_up: Sing up
+      sign_up: Sign up
   fraternities:
     new:
       title: Create a Fraternity
@@ -142,4 +142,4 @@ en:
         password_reset: Forgot your password?
         resend_confirmation_instructions: Didn't receive confirmation instructions?
         resend_unlock_instructions: Didn't receive unlock instructions?
-        sing_in_with: Sign in with %{provider}
+        sign_in_with: Sign in with %{provider}
