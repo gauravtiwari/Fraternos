@@ -13,7 +13,7 @@ es:
     visitor:
       home: Inicio
       sign_in: Iniciar sesión
-      sign_up: Regístrate
+      sign_up: Registrate
     navigation:
       fraternity_settings: Ajustes de Fraternidad
       user_settings: Ajustes de Usuario
@@ -22,7 +22,7 @@ es:
     new:
       title: Crea una Fraternidad
     index:
-      title: Mi Fraternidad
+      title: Mis Fraternidades
     edit:
       title: Editar Fraternidad
     form:
@@ -153,7 +153,7 @@ es:
     shared:
       links:
         log_in: Iniciar sesión
-        sign_up: Regístrate
+        sign_up: Registrate
         password_reset: ¿Olvidaste tu contraseña?
         resend_confirmation_instructions: ¿No recibistes las instrucciones de confirmación?
         resend_unlock_instructions: ¿No recibistes instrucciones de desbloqueo?
