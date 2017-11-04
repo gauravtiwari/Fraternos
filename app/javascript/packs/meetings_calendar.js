@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const eventCalendar = new Vue({
       el: element,
-      data() {
+      data: function() {
         return { meetings }
       },
       template: '<meetings-calendar :meetings="meetings" />',

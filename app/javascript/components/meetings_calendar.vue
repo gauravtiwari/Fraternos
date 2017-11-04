@@ -22,7 +22,7 @@ export default {
     },
   },
   methods: {
-    dateTimeFormatter(date) {
+    dateTimeFormatter: function(date) {
       if (!date || date == '') {
         return ''
       }
