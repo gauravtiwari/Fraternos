@@ -4,7 +4,7 @@ en:
     daily: Daily
     weekly: Weekly
     bi_weekly: Bi weekly
-    language: English
+    language: Español
     copyright: Copyright © %{year}
     made_by_html: |
       Made with 💪&nbsp by <a href='https://github.com/mustardseed'>Mustard Seed</a>.

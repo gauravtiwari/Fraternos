@@ -4,7 +4,7 @@ es:
     daily: Diario
     weekly: Semanalmente
     bi_weekly: Cada dos semanas
-    language: Español
+    language: English
     back: Atrás
     copyright: Copyright © %{year}
     made_by_html: |
