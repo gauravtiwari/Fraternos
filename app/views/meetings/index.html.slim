@@ -7,6 +7,5 @@
   .col-6.text-left
     = link_to t('.random_generator'), new_fraternity_batch_meeting_path, class: 'px-5 btn btn-primary'
 
-.container
-  ul.list-group
-    = render(@meetings) || render('shared/empty', subject: Meeting)
+.container.my-5.pb-5
+  div#meetings-calendar data-meetings=@events.to_json
