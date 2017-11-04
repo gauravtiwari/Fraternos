@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_fraternity, if: :user_signed_in?
+  before_action :set_locale
 
   helper_method :current_fraternity, :current_fraternity?
 
@@ -55,5 +56,18 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     devise_controller? ? 'visitor' : 'application'
+  end
+
+  def set_locale
+    cookies[:locale] = params[:locale] if locale_changed? && valid_locale?
+    I18n.locale = cookies[:locale] || I18n.default_locale
+  end
+
+  def locale_changed?
+    params[:locale] && params[:locale] != cookies[:locale]
+  end
+
+  def valid_locale?
+    I18n.available_locales.include?(params[:locale].to_sym)
   end
 end
