@@ -1,12 +1,12 @@
 <template>
   <vue-event-calendar :events="meetings">
-    <template slot-scope="props">
-        <div v-for="(event, index) in props.showEvents" class="event-item">
-            <div class="wrapper">
-              <a :href="event.link">
-                <h5 class="title">{{index+1}}. {{event.title}}</h5>
+    <template slot-scope='props'>
+        <div v-for='(event, index) in props.showEvents' class='event-item'>
+            <div class='wrapper'>
+              <a :href='event.link'>
+                <h5 class='title'>{{index+1}}. {{event.title}}</h5>
               </a>
-              <p class="time">{{dateTimeFormatter(Date.parse(new Date(event.date)))}}</p>
+              <p class='time'>{{dateTimeFormatter(Date.parse(new Date(event.date)))}}</p>
             </div>
         </div>
       </template>
@@ -23,13 +23,13 @@ export default {
   },
   methods: {
     dateTimeFormatter(date) {
-      if (!date || date == "") {
-        return ""
+      if (!date || date == '') {
+        return ''
       }
 
       date = new Date(date)
-      if (!date || date.toUTCString() == "Invalid Date") {
-        return ""
+      if (!date || date.toUTCString() == 'Invalid Date') {
+        return ''
       }
 
       return [date.getDate(), (date.getMonth() + 1), (date.getFullYear() + '').substr(4 - 2)].join('/')

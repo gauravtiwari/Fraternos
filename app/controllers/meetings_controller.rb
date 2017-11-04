@@ -58,9 +58,8 @@ class MeetingsController < ApplicationController
   end
 
   def load_event_meetings
-    @events = []
-    meetings.each do |meeting|
-      @events << {
+    @events = meetings.map do |meeting|
+      {
         date: meeting.date.strftime('%Y/%m/%d'),
         title: meeting.organizers_names,
         link: fraternity_meeting_path(meeting.fraternity, meeting)
