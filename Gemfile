@@ -8,7 +8,6 @@ end
 gem 'rails', '~> 5.1.0'
 
 gem 'active_link_to'
-gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'dry-types'

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   flatpickr('[data-datepicker]', {
     locale,
     inline: true,
-    onChange(selectedDates) {
+    onChange: function(selectedDates) {
       this.element.children.date.value = selectedDates[0]
     },
   })
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     locale,
     inline: true,
     mode: 'multiple',
-    onChange(selectedDates) {
+    onChange: function(selectedDates) {
       this.element.children.dates.value = selectedDates.join(', ')
     }
   })
