@@ -1,16 +1,41 @@
 es:
   general:
     title: Fraternos
+    daily: Diario
+    weekly: Semanalmente
+    bi_weekly: Cada dos semanas
+    language: Español
+    back: Atrás
+    copyright: Copyright © %{year}
+    made_by_html: |
+      Made with 💪&nbsp by <a href='https://github.com/mustardseed'>Mustard Seed</a>.
   actions:
     send: Enviar
     back: Atrás
     save: Guardar
+    new: Nuevo(a) %{subject}
+    generate: Generar
   messages:
     delete_prompt: Estás seguro?
+  errors:
+    unauthorized: No puedes realizar esta acción.
   notifications:
     destroyed: '%{subject} ha sido eliminado.'
     not_destroyed: 'No se pudo eliminar %{subject}.'
+    created: '%{subject} fue creado.'
+    not_created: '%{subject} no fue creado.'
+    updated: '%{subject} fue actualizado.'
+    invited: '%{subject} invitado.'
+    not_found: '%{subject} no encontrado.'
   shared:
     user_header:
       welcome: 'Bienvenido, %{subject}'
       upcoming_events: 'Proximo Evento'
+    tab_navigation:
+      events: Reuniones
+      members: Miembros
+  date:
+    formats:
+      month_abbreviated: '%b'
+      day: '%d'
+      date_with_day_in_words: '%a, %D'

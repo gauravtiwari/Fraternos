@@ -2,6 +2,7 @@ es:
   activerecord:
     attributes:
       user:
+        name: Nombre
         current_password: Contraseña actual
         email: Correo electrónico
         password: Contraseña
@@ -13,3 +14,9 @@ es:
       user:
         one: Usuario
         other: Usuarios
+      meeting:
+        one: Reunión
+        other: Reuniones
+      fraternity:
+        one: Fraternidad
+        other: Fraternidades

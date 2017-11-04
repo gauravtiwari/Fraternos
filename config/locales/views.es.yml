@@ -1,0 +1,160 @@
+es:
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+  placeholders:
+    email: fraterno@ejemplo.com
+    password: Crea una contraseña
+    name: Tu nombre
+  layouts:
+    visitor:
+      home: Inicio
+      sign_in: Iniciar sesión
+      sign_up: Registrate
+    navigation:
+      fraternity_settings: Ajustes de Fraternidad
+      user_settings: Ajustes de Usuario
+      sign_out: Salir
+  fraternities:
+    new:
+      title: Crea una Fraternidad
+    index:
+      title: Mis Fraternidades
+    edit:
+      title: Editar Fraternidad
+    form:
+      name: Nombre
+      absent_penalty: Multa de faltas
+  meetings:
+    index:
+      new_meeting: Nueva Reunión
+      random_generator: Generador Aleatorio
+    new:
+      title: Nueva reunión
+    edit:
+      title: Editar reunión
+    meeting:
+      organizers: Organizadores
+    show:
+      title: Meeting
+      organizers: Organizadores
+      attendance: Asistencia
+      absent: Falta!
+    form:
+      organizers: Organizadores
+  memberships:
+    new:
+      title: Agregar un nuevo miembro
+      email: Email
+      nickname: Apodo
+    membership:
+      debt: Deuda
+      payment: Pago
+    index:
+      add: Agregar
+  batch_meetings:
+    new:
+      title: Generar reuniones
+      organizers: Organizadores
+  pages:
+    home:
+      title: Bienvenido a Fraternos!
+      description_html: |
+        <p>
+          La manera más fácil y jodanga para administrar tu Fraternidad
+        </p>
+        <p>
+          <strong>Sin complicaciones!</strong>
+        <p>
+      sign_up: Crea tu cuenta
+  shared:
+    empty:
+      title: Ningún %{subject} ha sido creado aún!
+      create: Crea uno(a) nuevo(a)
+  devise:
+    confirmations:
+      new:
+        title: Reenviar las instrucciones de confirmación
+    passwords:
+      new:
+        title: Restablecer tu contraseña
+        email_label: Ingresa tu correo electrónico y te enviaremos un link para restablecer tu contraseña
+        email_placeholder: Ingresa tu correo electrónico
+        submit: Enviar link para restablecer contraseña
+      edit:
+        title: Cambia tu contraseña
+        new_password: Nueva contraseña
+        submit: Cambia mi contraseña
+    registrations:
+      new:
+        title: Únete a Fraternos
+        submit: Crea una cuenta
+      edit:
+        title: Editar cuenta
+        waiting_confirmation_for: "En espera de la confirmación de: %{email}"
+        delete_account: Borrar cuenta
+        delete_your_account: Borrar tu cuenta
+        transfer_or_delete_fraternities: |
+          Tu cuenta actualmente es dueña de una o más fraternidades.
+          Debes transferir tu rol o eliminar esta(s) fraternidad(es) antes de poder eliminar tu cuenta.
+    sessions:
+      new:
+        title: Iniciar sesión en Fraternos
+        submit: Iniciar sesión
+    unlocks:
+      new:
+        title: Reenviar instrucciones para desbloquear
+        submit: Resend instrucciones
+    invitations:
+      new:
+        title: Enviar invitacion
+        submit: Enviar invitacion
+      edit:
+        title: Crea tu contraseña
+        submit: Crea tu contraseña
+    mailer:
+      invitation_instructions:
+        greeting: Hola %{resource}
+        someone_invited_you: Alguien te ha invitado a %{url}, puedes aceptarlo a través del siguiente link.
+        action: Accept invitation
+        accept_until: Esta invitación vence en %{due_date}.
+        ignore_html: |
+          Si no deseas aceptar la invitación, ignora este email<br/>
+          Tu cuenta no se creará hasta que accedas al link de arriba y configures tu contraseña
+      confirmation_instructions:
+        greeting: Bienvenido %{resource}!
+        body_html: |
+          <p>Puede confirmar tu correo electrónico a través del siguiente link:</p>
+        action: Confirmar mi cuenta
+      email_changed:
+        greeting: Hola %{resource}!
+        body_html: |
+          <p>Nos contactamos para notificarte que tu correo electrónico se ha cambiando %{email}.</p>
+      password_change:
+        greeting: Hola %{resource}!
+        body_html: |
+          <p>Nos contactamos para notificarte que tu contraseña ha sido cambiada.</p>
+      reset_password_instructions:
+        greeting: Hola %{resource}!
+        body_html: |
+          <p>Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes hacerlo a través del siguiente link.</p>
+          <p>Si no lo solicitastes, ignora este correo electrónico.</p>
+          <p>Tu contraseña no cambiará hasta que accedas al link de arriba y crees una nueva.</p>
+        action: Cambiar mi contraseña
+      unlock_instructions:
+        greeting: Hola %{resource}!
+        body_html: |
+          <p>Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión infructuosos.</p>
+          <p>Haga clic en el siguiente link para desbloquear tu cuenta:</p>
+        action: Desbloquear mi cuenta
+    shared:
+      links:
+        log_in: Iniciar sesión
+        sign_up: Registrate
+        password_reset: ¿Olvidaste tu contraseña?
+        resend_confirmation_instructions: ¿No recibistes las instrucciones de confirmación?
+        resend_unlock_instructions: ¿No recibistes instrucciones de desbloqueo?
+        sign_in_with: Inicia sesión con %{provider}

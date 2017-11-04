@@ -60,4 +60,12 @@ module ApplicationHelper
     return amount if amount.abs < 1_000
     number_to_human(amount, format: '%n%u', precision: 4, units: { thousand: 'k' })
   end
+
+  def change_locale_path(options = {})
+    if I18n.locale == I18n.default_locale
+      link_to(t('general.language'), { locale: :es }, **options)
+    else
+      link_to(t('general.language'), { locale: :en }, **options)
+    end
+  end
 end

@@ -15,6 +15,7 @@ html
               h3.masthead-brand
                 = page_title
               nav.nav.nav-masthead
+                = change_locale_path class: 'nav-link mr-5 font-weight-light'
                 = active_link_to t('.home'), root_path, class: 'nav-link', active: :exact
                 = active_link_to t('.sign_in'), new_user_session_path, class: 'nav-link'
                 = active_link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'

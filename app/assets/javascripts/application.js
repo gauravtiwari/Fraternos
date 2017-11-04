@@ -15,4 +15,5 @@
 //= require popper.js/dist/umd/popper
 //= require bootstrap/dist/js/bootstrap
 //= require flatpickr/dist/flatpickr
+//= require flatpickr/dist/l10n/es
 //= require_tree .

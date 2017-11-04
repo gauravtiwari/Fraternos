@@ -1,8 +1,11 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
   = link_to t('general.title'), root_url, class: 'navbar-brand'
 
-  ul.navbar-nav.ml-auto.justify-content-end
-    li.nav-item.dropdown.show
+  ul.navbar-nav.ml-auto.d-inline-block
+    li.nav-item.d-inline-block.mr-5.my-auto.align-top.pt-1
+      = change_locale_path class: 'nav-link'
+
+    li.nav-item.dropdown.show.d-inline-block
       = link_to '#', class: 'nav-link dropdown-toggle', id: 'settings-menu', data: { toggle: 'dropdown' } do
         h2.my-auto = icon('cog')
 

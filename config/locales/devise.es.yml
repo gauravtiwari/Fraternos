@@ -14,18 +14,31 @@ es:
       timeout: Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.
       unauthenticated: Tienes que iniciar sesión o registrarte para poder continuar.
       unconfirmed: Tienes que confirmar tu cuenta para poder continuar.
+      deleted_account: Tu cuenta ha sido eliminada. Gracias!
+      invited: Tienes una invitación pendiente, tienes que aceptar para finalizar la creacion de tu cuenta.
     mailer:
+      invitation_instructions:
+        subject: Instrucciones de invitación
       confirmation_instructions:
         subject: Instrucciones de confirmación
-      password_change:
-        subject: Contraseña cambiada
       reset_password_instructions:
         subject: Instrucciones de recuperación de contraseña
       unlock_instructions:
         subject: Instrucciones para desbloquear
+      email_changed:
+        subject: Email cambiado
+      password_change:
+        subject: Contraseña cambiada
     omniauth_callbacks:
       failure: No has sido autorizado en la cuenta %{kind} porque "%{reason}".
       success: Has sido autorizado satisfactoriamente en la cuenta %{kind}.
+    invitations:
+      send_instructions: Se ha enviado una invitación al email %{email}.
+      invitation_token_invalid: El token de invitación no es valido.
+      updated: Tu contraseña fue colocada exitosamente!. Tu sesión ha iniciado.
+      updated_not_active: Tu contraseña fue colocada exitosamente!.
+      no_invitations_remaining: No hay mas invitaciones.
+      invitation_removed: Tu invitación fue eliminada.
     passwords:
       no_token: No puedes acceder a esta página si no es a través de un enlace para resetear tu contraseña. Si has llegado hasta aquí desde el email para resetear tu contraseña, por favor asegúrate de que la URL introducida está completa.
       send_instructions: Recibirás un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
@@ -40,10 +53,12 @@ es:
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu correo electrónico. Abre el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta correctamente, pero es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu correo y sigue el enlace de confirmación para finalizar la comprobación del nuevo correo electrónico.
       updated: Tu cuenta se ha actualizada.
+      edit:
+        cancel_account: Eliminar Mi Cuenta
     sessions:
-      already_signed_out: Sesión finalizada.
       signed_in: Sesión iniciada.
       signed_out: Sesión finalizada.
+      already_signed_out: Sesión finalizada.
     unlocks:
       send_instructions: Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
       send_paranoid_instructions: Si tu cuenta existe, vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.
