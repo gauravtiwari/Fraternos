@@ -4,7 +4,7 @@
       .card.calendar-card.small
         .card-header.bg-danger.text-white
           .full-width
-            .text-center.font-weight-bold.mx-auto = I18n.localize(meeting.date, format: :month_abbreviated)
+            .text-center.font-weight-bold.mx-auto = l(meeting.date, format: :month_abbreviated)
 
         .card-body
           .text-center = meeting.date.strftime('%d')

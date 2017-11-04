@@ -13,7 +13,7 @@
             = f.hidden_field :dates, class: 'form-control', id: 'dates'
 
         = f.field_wrapper :organizers, class: 'form-group' do
-          = f.label :organizers, class: 'form-control-label'
+          = label_tag t('.organizers')
 
           .d-flex.justify-content-center
             = f.select :organizers, options_for_select((1..5).step(1)), {}, class: 'form-control w-100'

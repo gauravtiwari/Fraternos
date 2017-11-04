@@ -4,11 +4,11 @@
 
     = form_for(@fraternity) do |f|
       = f.field_wrapper :name, class: 'form-group' do
-        = f.label :name, class: 'form-control-label'
+        = f.label t('.name')
         = f.text_field :name, class: 'form-control'
 
       = f.field_wrapper :absent_penalty, class: 'form-group' do
-        = f.label :absent_penalty, class: 'form-control-label'
+        = f.label t('.absent_penalty')
         = f.number_field :absent_penalty, class: 'form-control', min: -999999, max: 0, step: 1
 
       .text-center
