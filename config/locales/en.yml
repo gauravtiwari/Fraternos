@@ -29,8 +29,11 @@ en:
     user_header:
       welcome: 'Welcome, %{subject}'
       upcoming_events: 'Upcoming Event'
+    tab_navigation:
+      events: Events
+      members: Members
   date:
     formats:
-      month_abbreviated: '%b'
-      day: '%d'
-      date_with_day_in_words: '%a, %D'
+      month_abbreviated: "%b"
+      day: "%d"
+      date_with_day_in_words: "%a, %D"

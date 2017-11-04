@@ -14,6 +14,10 @@ es:
       home: Inicio
       sign_in: Iniciar sesión
       sign_up: Regístrate
+    navigation:
+      fraternity_settings: Ajustes de Fraternidad
+      user_settings: Ajustes de Usuario
+      sign_out: Salir
   fraternities:
     new:
       title: Crea una Fraternidad
@@ -21,18 +25,26 @@ es:
       title: Mi Fraternidad
     edit:
       title: Editar Fraternidad
+    form:
+      name: Nombre
+      absent_penalty: Multa de faltas
   meetings:
+    index:
+      new_meeting: Nueva Reunión
+      random_generator: Generador Aleatorio
     new:
       title: Nueva reunión
     edit:
       title: Editar reunión
     meeting:
-      organizers: Organizers
+      organizers: Organizadores
     show:
       title: Meeting
       organizers: Organizadores
       attendance: Asistencia
       absent: Falta!
+    form:
+      organizers: Organizadores
   memberships:
     new:
       title: Agregar un nuevo miembro
@@ -41,9 +53,12 @@ es:
     membership:
       debt: Deuda
       payment: Pago
+    index:
+      add: Agregar
   batch_meetings:
     new:
       title: Generar reuniones
+      organizers: Organizadores
   pages:
     home:
       title: Bienvenido a Fraternos!

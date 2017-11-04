@@ -1,9 +1,10 @@
 es:
   general:
     title: Fraternos
-     daily: Diario
+    daily: Diario
     weekly: Semanalmente
     bi_weekly: Cada dos semanas
+    back: Atrás
     copyright: Copyright © %{year}
     made_by_html: |
       Made with 💪&nbsp by <a href='https://github.com/mustardseed'>Mustard Seed</a>.
@@ -29,3 +30,11 @@ es:
     user_header:
       welcome: 'Bienvenido, %{subject}'
       upcoming_events: 'Proximo Evento'
+    tab_navigation:
+      events: Reuniones
+      members: Miembros
+  date:
+    formats:
+      month_abbreviated: '%b'
+      day: '%d'
+      date_with_day_in_words: '%a, %D'

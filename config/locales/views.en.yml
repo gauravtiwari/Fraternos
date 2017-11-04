@@ -14,6 +14,10 @@ en:
       home: Home
       sign_in: Sign in
       sign_up: Sign up
+    navigation:
+      fraternity_settings: Fraternity Settings
+      user_settings: User Settings
+      sign_out: Sign Out
   fraternities:
     new:
       title: Create a Fraternity
@@ -21,7 +25,13 @@ en:
       title: My Fraternities
     edit:
       title: Edit Fraternity
+    form:
+      name: Name
+      absent_penalty: Absent penalty
   meetings:
+    index:
+      random_generator: Random Generator
+      new_meeting: New Meeting
     new:
       title: New Meeting
     edit:
@@ -33,6 +43,8 @@ en:
       organizers: Organizers
       attendance: Attendance
       absent: Absent!
+    form:
+      organizers: Organizers
   memberships:
     new:
       title: Add New Member
@@ -41,9 +53,12 @@ en:
     membership:
       debt: Debt
       payment: Payment
+    index:
+      add: Add
   batch_meetings:
     new:
       title: Generate Meeting
+      organizers: Organizers
   pages:
     home:
       title: Welcome to Fraternos!

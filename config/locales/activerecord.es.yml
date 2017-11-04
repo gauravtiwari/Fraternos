@@ -2,6 +2,7 @@ es:
   activerecord:
     attributes:
       user:
+        name: Nombre
         current_password: Contraseña actual
         email: Correo electrónico
         password: Contraseña
