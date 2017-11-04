@@ -1,7 +1,7 @@
 class MeetingsController < ApplicationController
   def index
     authorize @fraternity, :show?
-    load_meetings
+    load_event_meetings
   end
 
   def show
@@ -57,7 +57,17 @@ class MeetingsController < ApplicationController
     @meeting ||= meetings_scope.find_by(id: params[:id])
   end
 
-  def load_meetings
+  def load_event_meetings
+    @events = meetings.map do |meeting|
+      {
+        date: meeting.date.strftime('%Y/%m/%d'),
+        title: meeting.organizers_names,
+        link: fraternity_meeting_path(meeting.fraternity, meeting)
+      }
+    end
+  end
+
+  def meetings
     @meetings ||= meetings_scope.upcoming
   end
 

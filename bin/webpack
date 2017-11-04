@@ -10,8 +10,8 @@ RAILS_ENV = ENV['RAILS_ENV']
 ENV['NODE_ENV'] ||= RAILS_ENV
 NODE_ENV = ENV['NODE_ENV']
 
-APP_PATH               = File.expand_path('../', __dir__)
-CONFIG_PATH            = File.join(APP_PATH, 'config/webpack/paths.yml')
+APP_PATH    = File.expand_path('../', __dir__)
+CONFIG_PATH = File.join(APP_PATH, 'config/webpack/paths.yml')
 
 begin
   paths = YAML.safe_load(File.read(CONFIG_PATH))[NODE_ENV]
