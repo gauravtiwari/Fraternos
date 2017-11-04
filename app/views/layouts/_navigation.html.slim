@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
 
   ul.navbar-nav.ml-auto.d-inline-block
     li.nav-item.d-inline-block.mr-5.my-auto.align-top.pt-1
-      = I18n.locale == I18n.default_locale ? link_to('Español', { locale: :es }, class: 'nav-link') : link_to('English', { locale: :en }, class: 'nav-link')
+      = change_locale_path class: 'nav-link'
 
     li.nav-item.dropdown.show.d-inline-block
       = link_to '#', class: 'nav-link dropdown-toggle', id: 'settings-menu', data: { toggle: 'dropdown' } do

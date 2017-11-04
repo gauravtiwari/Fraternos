@@ -15,7 +15,7 @@ html
               h3.masthead-brand
                 = page_title
               nav.nav.nav-masthead
-                == I18n.locale == I18n.default_locale ? link_to('Español', { locale: :es }, class: 'nav-link mr-5 font-weight-light') : link_to('English', { locale: :en }, class: 'nav-link mr-5 font-weight-light')
+                = change_locale_path class: 'nav-link mr-5 font-weight-light'
                 = active_link_to t('.home'), root_path, class: 'nav-link', active: :exact
                 = active_link_to t('.sign_in'), new_user_session_path, class: 'nav-link'
                 = active_link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'
