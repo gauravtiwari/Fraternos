@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const transactionFields = Array.from(document.querySelectorAll('[data-transaction-field]'))
 
-  transactionFields.forEach((transactionField) => {
+  transactionFields.forEach(function(transactionField) {
     transactionField.addEventListener('keyup', function() {
       const value = parseInt(this.value)
 

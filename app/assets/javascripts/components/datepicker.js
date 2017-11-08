@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const locale = localeCookie.length > 0 ? localeCookie[1] : 'en'
 
   flatpickr('[data-datepicker]', {
-    locale,
+    locale: locale,
     inline: true,
     onChange: function(selectedDates) {
       this.element.children.date.value = selectedDates[0]
-    },
+    }
   })
 
   flatpickr('[data-multi-datepicker]', {
-    locale,
+    locale: locale,
     inline: true,
     mode: 'multiple',
     onChange: function(selectedDates) {
