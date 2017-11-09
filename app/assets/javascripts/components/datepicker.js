@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const localeCookie = document.cookie.match(new RegExp('locale=([^;]+)'))
-  const locale = localeCookie.length > 0 ? localeCookie[1] : 'en'
+  const locale = (localeCookie != undefined && localeCookie.length > 0) ? localeCookie[1] : 'en'
 
   flatpickr('[data-datepicker]', {
     locale: locale,
