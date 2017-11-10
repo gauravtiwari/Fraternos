@@ -1,10 +1,6 @@
 {
   "name": "fraternos",
   "private": true,
-  "scripts": {
-    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-    "heroku-postbuild": "npm run webpack:deploy",
-  },
   "dependencies": {
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",

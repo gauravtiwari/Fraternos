@@ -4,9 +4,9 @@ import vueEventCalendar from 'vue-event-calendar';
 import MeetingsCalendar from '../components/meetings_calendar.vue'
 
 const localeCookie = document.cookie.match(new RegExp('locale=([^;]+)'))
-const locale = localeCookie.length > 0 ? localeCookie[1] : 'en'
+const locale = (localeCookie && localeCookie.length > 0) ? localeCookie[1] : 'en'
 
-Vue.use(vueEventCalendar, { locale, color: '#007bff' });
+Vue.use(vueEventCalendar, { locale: locale, color: '#007bff' });
 
 document.addEventListener('DOMContentLoaded', () => {
   const element = document.getElementById('meetings-calendar');
@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventCalendar = new Vue({
       el: element,
       data: function() {
-        return { meetings: meetings }
+        return {
+          meetings: meetings,
+        }
       },
       template: '<meetings-calendar :meetings="meetings" />',
       components: { MeetingsCalendar },
