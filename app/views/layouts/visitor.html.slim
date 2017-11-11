@@ -5,6 +5,8 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag 'visitor', media: 'all'
     = javascript_include_tag 'application'
+    meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
 
   body class=[controller_name, action_name]
     .site-wrapper
@@ -14,8 +16,8 @@ html
             .inner
               h3.masthead-brand
                 = page_title
-              nav.nav.nav-masthead
-                = change_locale_path class: 'nav-link mr-5 font-weight-light'
+              nav.nav.nav-masthead.d-flex.justify-content-center
+                = change_locale_path class: 'nav-link font-weight-light'
                 = active_link_to t('.home'), root_path, class: 'nav-link', active: :exact
                 = active_link_to t('.sign_in'), new_user_session_path, class: 'nav-link'
                 = active_link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'

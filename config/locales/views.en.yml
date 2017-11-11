@@ -23,6 +23,7 @@ en:
       title: Create a Fraternity
     index:
       title: My Fraternities
+      new: New Fraternity
     edit:
       title: Edit Fraternity
     form:

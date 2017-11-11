@@ -13,7 +13,7 @@ es:
     send: Enviar
     back: Atrás
     save: Guardar
-    new: Nuevo(a) %{subject}
+    new: Nuevo %{subject}
     generate: Generar
   messages:
     delete_prompt: Estás seguro?

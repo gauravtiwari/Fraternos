@@ -4,7 +4,7 @@ h4.mb-3
   = t('.title')
 
 .text-center.mb-4
-  = link_to new_fraternity_path, class: 'btn btn-secondary' do
-    = t('actions.new', subject: Fraternity.model_name.human)
+  = link_to new_fraternity_path, class: 'btn btn-primary' do
+    = t('.new', subject: Fraternity.model_name.human)
 
 = render(@fraternities)
