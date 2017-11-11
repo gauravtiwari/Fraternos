@@ -15,6 +15,7 @@
 .nav-pills {
   .nav-link {
     color: theme-color('secondary');
+    min-width: 130px;
   }
   .nav-link.active {
     background: theme-color('secondary');
