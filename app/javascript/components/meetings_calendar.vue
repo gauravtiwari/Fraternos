@@ -4,9 +4,9 @@
         <div v-for='(event, index) in props.showEvents' class='event-item'>
             <div class='wrapper'>
               <a :href='event.link'>
-                <h5 class='title'>{{index+1}}. {{event.title}}</h5>
+                <h5 class='title' style='line-height: 20px; width: 80%; margin-top: 10px;'>{{index+1}}. {{event.title}}</h5>
               </a>
-              <p class='time'>{{dateTimeFormatter(Date.parse(new Date(event.date)))}}</p>
+              <p class='time' style='position: absolute; top: 0; right: 0; padding-right: 5px;'>{{dateTimeFormatter(Date.parse(new Date(event.date)))}}</p>
             </div>
         </div>
       </template>
@@ -38,33 +38,5 @@ export default {
 }
 </script>
 
-<style scoped>
-  .event-item {
-    padding: 5px 20px;
-    margin-top: 15px;
-    box-shadow: 0 3px 11px 2px rgba(0,0,0,.1);
-    background-color: #fff;
-    border-radius: 5px;
-    color: #323232;
-    position: relative;
-    &:first-child{
-      margin-top: 0;
-    }
-
-    .title {
-      height: 40px;
-      line-height: 20px !important;
-      margin-top: 30px;
-      font-size: 16px;
-      border-bottom: none !important;
-    }
-
-    .time {
-      position: absolute;
-      right: 0;
-      top: 0;
-      color: #9b9b9b;
-      font-size: 14px;
-    }
-  }
+<style>
 </style>
