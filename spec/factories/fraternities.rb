@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :fraternity do
     name { Faker::RickAndMorty.location }
 

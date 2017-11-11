@@ -10,4 +10,4 @@ h2 = t('.title')
             = f.email_field :email, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
 
           .text-center
-            = f.submit t('actions.send'), class: 'btn btn-success btn-block'
+            = f.submit t('actions.send'), class: 'btn btn-secondary btn-block'

@@ -16,9 +16,9 @@
           .text-center = t('.organizers')
 
           = f.collection_check_boxes :organizer_ids, @meeting.fraternity.memberships.all, :user_id, :to_s, {}, multiple: true do |ff|
-            .btn.btn-outline-primary.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
+            .btn.btn-outline-secondary.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
               = ff.label { ff.check_box }
               = ff.object.to_s
 
         .text-center
-          = f.submit t('actions.save'), class: 'btn btn-primary px-5'
+          = f.submit t('actions.save'), class: 'btn btn-secondary px-5'
