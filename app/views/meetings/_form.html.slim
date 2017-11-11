@@ -3,7 +3,7 @@
     = link_to fraternity_meetings_path(@fraternity) do
       = icon('chevron-circle-left', t('general.back'))
 
-  .card.py-5.px-4
+  .card.card-narrow.py-2.px-4
     .card-body
       h4.mb-4.text-center.card-tile = yield(:title)
 
@@ -16,7 +16,7 @@
           .text-center = t('.organizers')
 
           = f.collection_check_boxes :organizer_ids, @meeting.fraternity.memberships.all, :user_id, :to_s, {}, multiple: true do |ff|
-            .btn.btn-outline-secondary.d-block.my-1.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
+            .btn.btn-outline-secondary.d-block.my-1.px-2.rounded class=class_string(active: @meeting.organizer_ids.include?(ff.object.user_id))
               = ff.label { ff.check_box }
               = ff.object.to_s
 

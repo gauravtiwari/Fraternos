@@ -9,9 +9,11 @@
           .w-50.mb-3
             = form_for :transaction, url: fraternity_transactions_path(@fraternity) do |f|
               = f.hidden_field :membership_id, value: membership.id
-              .d-flex
-                = f.number_field :amount, class: 'form-control number-field mr-2', min: -999999, max: 999999, step: 0.5, data: { transaction_field: '' }
-                = f.submit t('actions.save'), class: 'btn btn-outline-secondary'
+              .row.justify-content-md-center
+                .col-md-auto.col-md-5.col-sm-12.py-1.px-0
+                  = f.number_field :amount, class: 'form-control number-field', min: -999999, max: 999999, step: 0.5, data: { transaction_field: '' }
+                .col-md-7.col-sm-12.py-1.d-flex.justify-content-center
+                  = f.submit t('actions.save'), class: 'btn btn-outline-secondary'
 
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
         .text-center.h3.card-title = membership

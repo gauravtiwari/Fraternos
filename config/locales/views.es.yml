@@ -23,6 +23,7 @@ es:
       title: Crea una Fraternidad
     index:
       title: Mis Fraternidades
+      new: Nueva Fraternidad
     edit:
       title: Editar Fraternidad
     form:
