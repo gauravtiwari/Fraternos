@@ -11,3 +11,12 @@
     background: transparent;
   }
 }
+
+.nav-pills {
+  .nav-link {
+    color: theme-color('secondary');
+  }
+  .nav-link.active {
+    background: theme-color('secondary');
+  }
+}
