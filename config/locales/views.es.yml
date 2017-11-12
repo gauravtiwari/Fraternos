@@ -56,6 +56,10 @@ es:
       payment: Pago
     index:
       add: Agregar
+    edit:
+      title: Actualizar miembro
+      nickname: Apodo
+      role: Rol 
   batch_meetings:
     new:
       title: Generar reuniones

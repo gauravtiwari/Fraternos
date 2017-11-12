@@ -56,6 +56,10 @@ en:
       payment: Payment
     index:
       add: Add
+    edit:
+      title: Edit Member
+      nickname: Nickname
+      role: Role
   batch_meetings:
     new:
       title: Generate Meeting
