@@ -16,5 +16,11 @@
                   = f.submit t('actions.save'), class: 'btn btn-outline-secondary'
 
       .col-md-6.d-flex.flex-column.justify-content-center.align-items-center
-        .text-center.h3.card-title = membership
-        small.badge.badge-secondary = membership.role
+        .text-center
+          - if policy(@fraternity).edit?
+            = link_to edit_fraternity_membership_path(@fraternity, membership) do
+              h3.card-title.text-dark = membership
+              small.badge.badge-secondary = membership.role
+          - else
+            h3.card-title = membership
+            small.badge.badge-secondary = membership.role

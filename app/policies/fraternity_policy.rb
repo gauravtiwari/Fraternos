@@ -12,7 +12,7 @@ class FraternityPolicy < ApplicationPolicy
   end
 
   def update?
-    user.owns_fraternity?(record)
+    user.administrates_fraternity?(record)
   end
 
   def destroy?

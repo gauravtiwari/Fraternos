@@ -2,7 +2,7 @@ class MembershipPolicy < ApplicationPolicy
   alias membership record
 
   def update?
-    user.administrates_fraternity?(membership.fraternity_id)
+    user.owns_fraternity?(record.fraternity_id)
   end
 
   def destroy?
