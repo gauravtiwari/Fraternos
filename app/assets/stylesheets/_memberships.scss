@@ -17,12 +17,15 @@
 }
 
 .number-field {
-  border-width: 2px;
-
+  border-width: 3px;
+  outline: none;
+  &:focus {
+    box-shadow: none;
+    border-color: $secondary;
+  }
   &.positive {
     border-color: $green;
   }
-
   &.negative {
     border-color: $red;
   }
